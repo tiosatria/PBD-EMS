@@ -35,3 +35,4 @@ C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\ob
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.Dashboard.resources
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.LeftPanel.resources
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.DialogYesNo.resources
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.Employee.resources

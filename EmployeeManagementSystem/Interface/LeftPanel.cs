@@ -48,11 +48,13 @@ namespace EmployeeManagementSystem.Interface
         private void btnHome_Click(object sender, EventArgs e)
         {
             FocusButton(btnHome);
+            UIController.Navigate(UIController.Controls.Dashboard);
         }
 
         private void btnEmploye_Click(object sender, EventArgs e)
         {
             FocusButton(btnEmploye);
+            UIController.Navigate(UIController.Controls.Employee);
 
         }
 

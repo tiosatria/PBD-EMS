@@ -71,6 +71,12 @@
     <Compile Include="Interface\DialogYesNo.Designer.cs">
       <DependentUpon>DialogYesNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\Employee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Interface\Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\LeftPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\DialogYesNo.resx">
       <DependentUpon>DialogYesNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\LeftPanel.resx">
       <DependentUpon>LeftPanel.cs</DependentUpon>
