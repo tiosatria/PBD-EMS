@@ -16,6 +16,7 @@ namespace EmployeeManagementSystem
         public Main()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void Main_Load(object sender, EventArgs e)

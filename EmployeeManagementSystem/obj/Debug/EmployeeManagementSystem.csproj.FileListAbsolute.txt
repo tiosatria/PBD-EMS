@@ -15,7 +15,6 @@ C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\bi
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\MySql.Data.xml
-C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csprojAssemblyReference.cache
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.exe.config
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Properties.Resources.resources
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.GenerateResource.cache
@@ -36,3 +35,5 @@ C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\ob
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.LeftPanel.resources
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.DialogYesNo.resources
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.Employee.resources
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csprojAssemblyReference.cache
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.PopNotification.resources

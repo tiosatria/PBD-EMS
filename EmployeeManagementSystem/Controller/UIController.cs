@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Runtime.InteropServices;
 using System.Net.Http.Headers;
 using Telerik.WinControls.UI;
+using Guna.UI2.WinForms;
 using EmployeeManagementSystem.Properties;
 
 namespace EmployeeManagementSystem.Controller
@@ -27,7 +28,7 @@ namespace EmployeeManagementSystem.Controller
         private static Employee employee = new Employee();
         #endregion
 
-        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Exit, Employee }
+        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Exit, Employee, DeleteEmp }
         private static Controls _controls;
         public enum DockType { top, fill, left }
         private static DockType _dock;
@@ -41,6 +42,34 @@ namespace EmployeeManagementSystem.Controller
         {
 
         }
+
+        public static void SendToBack(Controls controls)
+        {
+            switch (controls)
+            {
+                case Controls.LeftPanel:
+                    break;
+                case Controls.LeftPanelExpand:
+                    break;
+                case Controls.Login:
+                    break;
+                case Controls.UpperPanel:
+                    break;
+                case Controls.Dashboard:
+                    break;
+                case Controls.Exit:
+                    dialog.SendToBack();
+                    break;
+                case Controls.Employee:
+                    break;
+                case Controls.DeleteEmp:
+                    dialog.SendToBack();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         #region Function
         //navigate
         public static void Navigate(Controls ctr)
@@ -74,11 +103,7 @@ namespace EmployeeManagementSystem.Controller
                 case Controls.Exit:
                     mainform.Controls.Add(dialog);
                     SetControl(dialog, DockType.fill);
-                    Confirmation.Title = "Exit Application";
-                    Confirmation.Subtitle = "Are you sure you want to quit application?\nAny unsaved data will be lost!";
-                    Confirmation.yesDisplay = "Yes, let me go";
-                    Confirmation.noDisplay = "No, let me stay";
-                    Confirmation.img = Resources.icons8_question_mark_480px;
+                    Confirmation.SetDialog(Controls.Exit);
                     dialog.InitializeObject();
                     dialog.BringToFront();
                     break;
@@ -88,6 +113,35 @@ namespace EmployeeManagementSystem.Controller
                     employee.InitializeObject();
                     employee.BringToFront();
                     break;
+                case Controls.DeleteEmp:
+                    mainform.Controls.Add(dialog);
+                    SetControl(dialog, DockType.fill);
+                    Confirmation.SetDialog(Controls.DeleteEmp);
+                    dialog.InitializeObject();
+                    dialog.BringToFront();
+                    break;
+            }
+        }
+
+        public static void ResetControl(Control ctrl)
+        {
+            foreach (var item in ctrl.Controls)
+            {
+                if (item is Guna2TextBox)
+                {
+                    var textbox = (Guna2TextBox)item;
+                    textbox.Clear();
+                }
+                if (item is Guna2ComboBox)
+                {
+                    var combo = (Guna2ComboBox)item;
+                    combo.SelectedIndex = -1;
+                }
+                if (item is Guna2CirclePictureBox)
+                {
+                    var picture = (Guna2CirclePictureBox)item;
+                    picture.Image = Resources.icons8_male_user_52px;
+                }
             }
         }
 

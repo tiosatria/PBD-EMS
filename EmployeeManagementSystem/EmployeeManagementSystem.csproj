@@ -95,6 +95,12 @@
     <Compile Include="Interface\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\PopNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\PopNotification.Designer.cs">
+      <DependentUpon>PopNotification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\UpperPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +113,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Data.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Documents.cs" />
     <Compile Include="Model\Employee.cs" />
@@ -127,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\PopNotification.resx">
+      <DependentUpon>PopNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\UpperPanel.resx">
       <DependentUpon>UpperPanel.cs</DependentUpon>
@@ -175,6 +185,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\icons8_question_mark_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\icons8_Check_Mark_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\icons8_checkmark_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\icons8_high_risk_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\icons8_info_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\icons8_Warning_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -56,12 +56,12 @@ namespace EmployeeManagementSystem.Interface
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-            Confirmation.Yes(Confirmation.Type.Exit);
+            Confirmation.Yes();
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            this.SendToBack();
+            Confirmation.No();
         }
 
 

@@ -54,13 +54,13 @@ namespace EmployeeManagementSystem.Controller
             if(_authorized)
             {
                 usr = new User();
-                MessageBox.Show($"You're logged in! {usr.FullName} ");
+                Notification.Alert($"You're logged in! {usr.FullName}", Interface.PopNotification.AlertType.Success); 
                 UIController.Navigate(UIController.Controls.LeftPanel);
                 UIController.Navigate(UIController.Controls.Dashboard);
             }
             else
             {
-
+                Notification.Alert("We couldn't recognize you", Interface.PopNotification.AlertType.Error);
             }
         }
 
@@ -70,7 +70,24 @@ namespace EmployeeManagementSystem.Controller
             switch (entities)
             {
                 case Entities.Employee:
-                    return dt;
+                    //retrieve all employee, put 0 will parse all result
+                    if(str[0] == "0")
+                    {
+                        cmd = new MySqlCommand("GetAllEmployee", Connection.GetConnection());
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        dataAdapter = new MySqlDataAdapter(cmd);
+                        dataAdapter.Fill(dt);
+                        return dt;
+                    }
+                    else//retrieve selected employee, put employeeid
+                    {
+                        cmd = new MySqlCommand("GetEmployee", Connection.GetConnection());
+                        cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = str[0];
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        dataAdapter = new MySqlDataAdapter(cmd);
+                        dataAdapter.Fill(dt);
+                        return dt;
+                    }
                     break;
                 case Entities.Department:
                     return dt;
