@@ -56,9 +56,14 @@ namespace EmployeeManagementSystem.Model
 
         public static void SaveEmployeeData()
         {
-            
+
+            Query.Insert(Query.Entities.Employee, );
         }
 
+        public static void UpdateEmployeeData()
+        {
+
+        }
         
 
         #endregion

@@ -178,13 +178,33 @@ namespace EmployeeManagementSystem.Interface
         }
 
         private void UpdateData()
-        { 
-        
+        {
+            string[] str = new string[10];
+            Query.Update(Query.Entities.Employee, str);
         }
 
-        private void InsertData()
+        private void ParseData()
         {
-            
+            Data.employee.FirstName = eTxtFname.Text;
+            Data.employee.LastName = eTxtFname.Text;
+            Data.employee.ResAddress = eAddress.Text;
+            Data.employee.ResPostCode = ePost.Text;
+            Data.employee.Mobile = eMobile.Text;
+            Data.employee.HomePhone = eHomePhone.Text;
+            Data.employee.Nik = eNik.Text;
+            Data.employee.DepartmentId = Data.department.DeptID;
+            string[] str = new string[10];
+            str[0] = eTxtFname.Text;
+            str[1] = eTxtLname.Text;
+            str[2] = eAddress.Text;
+            str[3] = ePost.Text;
+            str[4] = eMobile.Text;
+            str[5] = eHomePhone.Text;
+            str[6] = eNik.Text;
+            str[7] = "";//deptnumber
+            str[8] = eJobTitle.Text;
+            str[9] = eDesc.Text;
+            str[10] = "";//employeeimg
         }
 
         private void btnPersonal_Click(object sender, EventArgs e)

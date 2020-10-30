@@ -64,6 +64,78 @@ namespace EmployeeManagementSystem.Controller
             }
         }
 
+        public static void Update(Entities entities, string[] str)
+        {
+            switch (entities)
+            {
+                case Entities.Employee:
+
+                    break;
+                case Entities.Department:
+
+                    break;
+                case Entities.Document:
+
+                    break;
+                case Entities.User:
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public static void Insert(Entities entities, string[] str)
+        {
+            switch (entities)
+            {
+                case Entities.Employee:
+                    cmd = new MySqlCommand("InsertEmployee", Connection.GetConnection());
+                    cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Data.GetNewEmployeeId();
+                    cmd.Parameters.Add("@fname", MySqlDbType.VarChar).Value = str[0];
+                    cmd.Parameters.Add("@lname", MySqlDbType.VarChar).Value = str[1];
+                    cmd.Parameters.Add("@addr", MySqlDbType.Text).Value = str[2];
+                    cmd.Parameters.Add("@pos", MySqlDbType.VarChar).Value = str[3];
+                    cmd.Parameters.Add("@mobile", MySqlDbType.VarChar).Value = str[4];
+                    cmd.Parameters.Add("@homephone", MySqlDbType.VarChar).Value = str[5];
+                    cmd.Parameters.Add("@nikv", MySqlDbType.VarChar).Value = str[6];
+                    cmd.Parameters.Add("@dept", MySqlDbType.Int32).Value = str[7];
+                    cmd.Parameters.Add("@jobtitle", MySqlDbType.VarChar).Value = str[8];
+                    cmd.Parameters.Add("@jobdesc", MySqlDbType.VarChar).Value = str[9];
+                    cmd.Parameters.Add("@pic", MySqlDbType.Text).Value = str[10];
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    if(cmd.ExecuteNonQuery() == 1)
+                    {
+                        Notification.Alert("Employee Data Recorded Succesfully!", Interface.PopNotification.AlertType.Success);
+                    }
+                    else
+                    {
+                        Notification.Alert("Error Occured", Interface.PopNotification.AlertType.Error);
+                    }
+                    break;
+                case Entities.Department:
+                    cmd = new MySqlCommand("InsertDepartment", Connection.GetConnection());
+                    cmd.Parameters.Add("@", MySqlDbType.VarChar).Value = str[0];
+                    cmd.Parameters.Add("@", MySqlDbType.Text).Value = str[1];
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    if(cmd.ExecuteNonQuery() == 1)
+                    {
+                        Notification.Alert("Department Inserted succesfully!", Interface.PopNotification.AlertType.Success);
+                    }
+                    else
+                    {
+                        Notification.Alert("Unknown Error", Interface.PopNotification.AlertType.Error);
+                    }
+                    break;
+                case Entities.Document:
+                    break;
+                case Entities.User:
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public static DataTable Load(Entities entities, string [] str)
         {
             DataTable dt = new DataTable();
@@ -90,7 +162,23 @@ namespace EmployeeManagementSystem.Controller
                     }
                     break;
                 case Entities.Department:
-                    return dt;
+                    if (str[0] == "0")
+                    {
+                        cmd = new MySqlCommand("GetAllDepartment", Connection.GetConnection());
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        dataAdapter = new MySqlDataAdapter(cmd);
+                        dataAdapter.Fill(dt);
+                        return dt;
+                    }
+                    else
+                    {
+                        cmd = new MySqlCommand("GetSpecificDepartment", Connection.GetConnection());
+                        cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = str[0];
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        dataAdapter = new MySqlDataAdapter(cmd);
+                        dataAdapter.Fill(dt);
+                        return dt;
+                    }
                     break;
                 case Entities.Document:
                     return dt;
