@@ -28,7 +28,7 @@ namespace EmployeeManagementSystem.Controller
         private static Employee employee = new Employee();
         #endregion
 
-        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Exit, Employee, DeleteEmp }
+        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Exit, Employee, DeleteEmp, Department }
         private static Controls _controls;
         public enum DockType { top, fill, left }
         private static DockType _dock;

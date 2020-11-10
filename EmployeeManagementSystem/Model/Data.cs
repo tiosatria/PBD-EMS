@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -12,15 +13,32 @@ namespace EmployeeManagementSystem.Model
     public class Data
     {
 
+        const string MasterPath = @"\\192.168.30.100\Dir\";
         public static Employee employee;
         public static List<Employee> employeesList;
         public static int EmployeeCount;
         public static Department department;
         public static List<Department> departmentsList;
+        public static string LocalPath { get; set; }
+        public static string DbPath { get; set; }
 
         public static void GetDepartmentList()
         {
-
+            departmentsList = new List<Department>();
+            
+            DataTable dt = new DataTable();
+            dt   = Query.Load(Query.Entities.Department, new string[1] { "0"});
+            if(dt.Rows.Count >= 1)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    department = new Department();
+                    department.DeptID = Convert.ToInt32(dt.Rows[i][0].ToString());
+                    department.DeptName = dt.Rows[i][1].ToString();
+                    department.DeptDesc = dt.Rows[i][2].ToString();
+                    departmentsList.Add(department);
+                }
+            }
         }
 
         public static void GetDepartment(int i)
@@ -35,11 +53,21 @@ namespace EmployeeManagementSystem.Model
 
         }
 
-        private static string GetImagePath()
+
+
+        public static string GetImagePath()
         {
             string str = string.Empty;
-
-            return str;
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Image Files (*.PNG;*.JPG;*.PNG;*.JPEG) | *.PNG;*.JPG;*.PNG;*.JPEG";
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                str = opf.FileName;
+                LocalPath = str;
+                DbPath = MasterPath + employee.idEmployee + employee.FirstName;
+                MessageBox.Show(str);
+            }
+            return DbPath;
         }
 
         private static readonly Random random;
@@ -47,8 +75,10 @@ namespace EmployeeManagementSystem.Model
         public static int GetNewEmployeeId()
         {
              int i = Convert.ToInt32(DateTime.Now.ToString("yy")+DateTime.Now.ToString("dd")+random.Next(000, 999));
-             return i;
+            MessageBox.Show(i.ToString());
+            return i;
         }
+
 
         public static void GetEmployees()
         {

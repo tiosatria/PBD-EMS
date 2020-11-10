@@ -33,8 +33,21 @@ namespace EmployeeManagementSystem.Interface
                 InitializeComponent();
                 Data.GetEmployees();
                 InitGrid();
+                InitDropBox();
             }
             isLoad = true;
+        }
+
+        private void InitDropBox()
+        {
+
+            Data.GetDepartmentList();
+            foreach (var item in Data.departmentsList)
+            {
+                eDropDept.Items.Add(item.DeptName);
+            }
+
+            
         }
 
         private void InitGrid()
@@ -186,25 +199,16 @@ namespace EmployeeManagementSystem.Interface
         private void ParseData()
         {
             Data.employee.FirstName = eTxtFname.Text;
-            Data.employee.LastName = eTxtFname.Text;
+            Data.employee.LastName = eTxtLname.Text;
             Data.employee.ResAddress = eAddress.Text;
             Data.employee.ResPostCode = ePost.Text;
             Data.employee.Mobile = eMobile.Text;
             Data.employee.HomePhone = eHomePhone.Text;
             Data.employee.Nik = eNik.Text;
             Data.employee.DepartmentId = Data.department.DeptID;
-            string[] str = new string[10];
-            str[0] = eTxtFname.Text;
-            str[1] = eTxtLname.Text;
-            str[2] = eAddress.Text;
-            str[3] = ePost.Text;
-            str[4] = eMobile.Text;
-            str[5] = eHomePhone.Text;
-            str[6] = eNik.Text;
-            str[7] = "";//deptnumber
-            str[8] = eJobTitle.Text;
-            str[9] = eDesc.Text;
-            str[10] = "";//employeeimg
+            Data.employee.Desc = eDesc.Text;
+            Data.employee.JobTitle = eJobTitle.Text;
+            Data.employee.picLocation = Data.GetImagePath();
         }
 
         private void btnPersonal_Click(object sender, EventArgs e)
@@ -224,14 +228,33 @@ namespace EmployeeManagementSystem.Interface
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(isLoad)
+            if(isSaved)
             {
                 UpdateData();
             }
             else
             {
-                InsertData();
+                ParseData();
+                Data.employee.SaveEmployeeData();
             }
+        }
+
+        private void ePic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void eDropDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedDepartment = eDropDept.SelectedItem.ToString();
+            Data.department = Data.departmentsList[Data.departmentsList.FindIndex(o => o.DeptName.Contains(selectedDepartment))];
+        }
+
+        public static void InsertData()
+        {
+            
         }
     }
 }

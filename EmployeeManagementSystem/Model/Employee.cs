@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EmployeeManagementSystem.Model
 {
@@ -54,10 +55,21 @@ namespace EmployeeManagementSystem.Model
             dt = Query.Load(Query.Entities.Employee, new string[1] { id.ToString() });
         }
 
-        public static void SaveEmployeeData()
+        public void SaveEmployeeData()
         {
-
-            Query.Insert(Query.Entities.Employee, );
+            string[] str = new string[11];
+            str[0] = FirstName;
+            str[1] = LastName;
+            str[2] = ResAddress;
+            str[3] = ResPostCode;
+            str[4] = Mobile;
+            str[5] = HomePhone;
+            str[6] = Nik;
+            str[7] = DepartmentId.ToString();
+            str[8] = JobTitle;
+            str[9] = Desc;
+            str[10] = picLocation;
+            Query.Insert(Query.Entities.Employee, str);
         }
 
         public static void UpdateEmployeeData()

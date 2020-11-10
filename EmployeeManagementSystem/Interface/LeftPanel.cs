@@ -61,7 +61,7 @@ namespace EmployeeManagementSystem.Interface
         private void btnDept_Click(object sender, EventArgs e)
         {
             FocusButton(btnDept);
-
+           // UIController.Navigate(UIController.Controls.)
         }
 
         private void btnUserAcc_Click(object sender, EventArgs e)
