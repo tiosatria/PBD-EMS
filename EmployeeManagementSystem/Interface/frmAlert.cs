@@ -11,9 +11,9 @@ using EmployeeManagementSystem.Properties;
 
 namespace EmployeeManagementSystem.Interface
 {
-    public partial class PopNotification : Form
+    public partial class PopUp : Form
     {
-        public PopNotification()
+        public PopUp()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace EmployeeManagementSystem.Interface
 
         private int x, y;
 
-        public void setAlert(string message, PopNotification.AlertType type)
+        public void setAlert(string message, PopUp.AlertType type)
         {
             this.Opacity = 0.0;
             this.StartPosition = FormStartPosition.Manual;
@@ -36,7 +36,7 @@ namespace EmployeeManagementSystem.Interface
             for (int i = 1; i < 10; i++)
             {
                 fname = "alert" + i.ToString();
-                PopNotification f = (PopNotification)Application.OpenForms[fname];
+                PopUp f = (PopUp)Application.OpenForms[fname];
                 if (f == null)
                 {
                     this.Name = fname;
@@ -50,22 +50,22 @@ namespace EmployeeManagementSystem.Interface
             this.x = Screen.PrimaryScreen.WorkingArea.Width - base.Width - 5;
             switch (type)
             {
-                case PopNotification.AlertType.Success:
+                case PopUp.AlertType.Success:
                     this.alertPic.Image = Resources.icons8_checkmark_52px;
                     this.BackColor = Color.FromArgb(42, 171, 160);
                     break;
 
-                case PopNotification.AlertType.Warning:
+                case PopUp.AlertType.Warning:
                     this.alertPic.Image = Resources.icons8_Warning_48px;
                     this.BackColor = Color.FromArgb(255, 179, 2);
                     break;
 
-                case PopNotification.AlertType.Error:
+                case PopUp.AlertType.Error:
                     this.alertPic.Image = Resources.icons8_high_risk_40px;
                     this.BackColor = Color.FromArgb(255, 121, 70);
                     break;
 
-                case PopNotification.AlertType.Info:
+                case PopUp.AlertType.Info:
                     this.alertPic.Image = Resources.icons8_info_48px;
                     this.BackColor = Color.FromArgb(71, 169, 248);
                     break;
@@ -93,11 +93,11 @@ namespace EmployeeManagementSystem.Interface
         {
             switch (this.action)
             {
-                case PopNotification.actionEnum.Wait:
+                case PopUp.actionEnum.Wait:
                     this.timer1.Interval = 5000;
-                    this.action = PopNotification.actionEnum.Close;
+                    this.action = PopUp.actionEnum.Close;
                     break;
-                case PopNotification.actionEnum.Start:
+                case PopUp.actionEnum.Start:
                     this.timer1.Interval = 1;
                     this.Opacity += 0.1;
                     if (this.x < this.Location.X)
@@ -108,11 +108,11 @@ namespace EmployeeManagementSystem.Interface
                     {
                         if (this.Opacity == 1.0)
                         {
-                            this.action = PopNotification.actionEnum.Wait;
+                            this.action = PopUp.actionEnum.Wait;
                         }
                     }
                     break;
-                case PopNotification.actionEnum.Close:
+                case PopUp.actionEnum.Close:
                     this.timer1.Interval = 1;
                     this.Opacity -= 0.1;
                     this.Left -= 3;
@@ -127,10 +127,15 @@ namespace EmployeeManagementSystem.Interface
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.timer1.Interval = 1;
-            this.action = PopNotification.actionEnum.Close;
+            this.action = PopUp.actionEnum.Close;
         }
 
-        private PopNotification.actionEnum action;
+        private void PopUp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private PopUp.actionEnum action;
 
 
     }

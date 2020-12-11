@@ -22,51 +22,97 @@ namespace EmployeeManagementSystem.Model
         public int OwnerId { get; set; }
         public string Username { get; set; }
         private string _password;
+        public string SecretQuestion { get; set; }
+        public string SecretAnswer { get; set; }
         public string Password
         {
             get { return null; }
             set { _password = value; }
         }
-        private Image _userimg;
+        private string _UserPicLocation;
 
-        public Image UserImg
+        public string UserPicLocation
         {
-            get { return _userimg; }
-            set { _userimg = value; }
+            get { return _UserPicLocation; }
+            set { _UserPicLocation = value; userPic = GetImage(value); }
         }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string FullName { get; set; }
-        public int DeptId { get; set; }
-        public string Department { get; set; }
+        public Image userPic { get; set; }
+        public static User CurrentUser = null;
+        public static Employee Employee = null;
+
         #endregion
         public User()
         {
-            GetUserData(Query.SelectedID);
+
         }
 
         #region Function
-        public void GetUserData(int id)
+        private Image GetImage(string loc)
         {
-            DataTable dt = Query.Load(Query.Entities.User, new string[1] {id.ToString() });
-            Uid = Convert.ToInt32(dt.Rows[0][0]);
-            OwnerId = Convert.ToInt32(dt.Rows[0][1].ToString());
-            Username = dt.Rows[0][2].ToString();
-            Password = dt.Rows[0][3].ToString();
-            FirstName = dt.Rows[0][4].ToString();
-            LastName = dt.Rows[0][5].ToString();
-            FullName = dt.Rows[0][6].ToString();
             try
             {
-                UserImg = Image.FromFile(dt.Rows[0][7].ToString());
-
+                using (Image image = Image.FromFile(loc))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    image.Dispose();
+                    return bitmap;
+                }
             }
             catch (Exception)
             {
-                UserImg = Resources.icons8_male_user_52px;
+                Image image = Resources.icons8_male_user_52px;
+                return image;
             }
         }
+        
+        public static bool Auth(string username, string password)
+        {
+            try
+            {
+                Int64 id;
+                DataTable dt = Query.GetDataTable("Login", new string[2] { "@_usr", "@_pass" }, new MySql.Data.MySqlClient.MySqlDbType[2] { MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[2] { username, password });
+                if (dt.Rows.Count >= 1)
+                {
+                    try
+                    {
+                        id = Convert.ToInt64(dt.Rows[0][1].ToString());
+                        CurrentUser = new User();
+                        Employee = Employee.InitiateEmployee(id);
+                        CurrentUser.Username = username;
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        id = 0;
+                        return false;
+                    }
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Notification.Alert("Something is wrong!" + "Error details: " + ex.Message, Interface.PopUp.AlertType.Error);
+                return false;
+            }
+        }
+        //public static bool Insert()
+        //{
+
+        //}
+        //public static bool Get()
+        //{
+
+
+        //}
+        //public static bool GetList()
+        //{
+
+        //}
         #endregion
 
 

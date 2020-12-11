@@ -23,7 +23,6 @@ namespace EmployeeManagementSystem.Interface
         public void InitializeObject()
         {
             InitializeComponent();
-            this.lblGreeting.Text = $"Hello, {Query.usr.FullName}!\nLet's do something today!";
         }
 
     }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagementSystem.Controller
+namespace EmployeeManagementSystem
 {
     public class Notification
     {
@@ -13,9 +13,9 @@ namespace EmployeeManagementSystem.Controller
         {
 
         }
-        public static void Alert(string msg, PopNotification.AlertType type)
+        public static void Alert(string msg, Interface.PopUp.AlertType type)
         {
-            var f = new PopNotification();
+            var f = new Interface.PopUp();
             f.setAlert(msg, type);
         }
     }

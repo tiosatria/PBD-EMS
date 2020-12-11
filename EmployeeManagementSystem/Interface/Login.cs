@@ -1,30 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using EmployeeManagementSystem.Controller;
+using EmployeeManagementSystem.Model;
 
 namespace EmployeeManagementSystem.Interface
 {
     public partial class Login : UserControl
     {
+        private bool isloaded = false;
         public Login()
         {
+
+
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            Query.Auth(txtUsername.Text, txtPassword.Text);
+            if (User.Auth(txtUsername.Text, txtPassword.Text))
+            {
+                Notification.Alert($"Hello! {User.Employee.FullName}! You're logged in!", PopUp.AlertType.Info);
+                UIController.Navigate(UIController.Controls.Dashboard); 
+            }
+            else
+            {
+                Notification.Alert("We couldn't recognise you, mind to reintroduce?", PopUp.AlertType.Warning);
+            }
         }
 
         public void InitializeObject()
         {
-            InitializeComponent();
+            if (!isloaded)
+            {
+                InitializeComponent();
+                isloaded = true;
+            }
         }
 
     }

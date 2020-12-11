@@ -13,30 +13,37 @@ namespace EmployeeManagementSystem.Interface
 {
     public partial class DialogYesNo : UserControl
     {
+        private bool isloaded = false;
         private string _title;
-            
+        private string _yes;
+        public string YesText
+        {
+            get { return _yes; }
+            set { _yes = value; btnYes.Text = value; }
+        }
+        private string _no;
+        public string NoText
+        {
+            get { return _no; }
+            set { _no = value;btnNo.Text = value; }
+        }
         public string Title
         {
             get { return _title; }
-            set { _title = value; }
+            set { _title = value; lblTitle.Text = value; }
         }
         private string _subtitle;
-
         public string Subtitle
         {
             get { return _subtitle; }
-            set { _subtitle = value; }
+            set { _subtitle = value; lblSubtitle.Text = value; }
         }
-
         private Image _imagedialog;
-
         public Image ImageDialog
         {
             get { return _imagedialog; }
-            set { _imagedialog = value; }
+            set { _imagedialog = value; picDialog.Image = value; }
         }
-
-
         public DialogYesNo()
         {
 
@@ -44,13 +51,11 @@ namespace EmployeeManagementSystem.Interface
 
         public void InitializeObject()
         {
-            InitializeComponent();
-
-            lblTitle.Text = Confirmation.Title;
-            lblSubtitle.Text = Confirmation.Subtitle;
-            picDialog.Image = Confirmation.img;
-            btnYes.Text = Confirmation.yesDisplay;
-            btnNo.Text = Confirmation.noDisplay;
+            if (!isloaded)
+            {
+                InitializeComponent();
+                isloaded = true;
+            }
 
         }
 

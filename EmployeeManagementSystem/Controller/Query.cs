@@ -1,229 +1,234 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using EmployeeManagementSystem.Model;
 
 namespace EmployeeManagementSystem.Controller
 {
     public class Query
     {
-        #region Variable
-        public static int SelectedID;
-        private static MySqlCommand cmd;
-        private static DataTable table;
-        public static User usr;
-        private static MySqlDataAdapter dataAdapter;
-        private static bool _authorized;
-        public enum Department
+        #region Enumeration
+        public enum Process
         {
-            Management,
-            HumanResource,
-            User
+            Auth, LogLoginHistory, Master, LoadStudent, LoadStudentList, GetAcademicYearList, GetClassListByYear, GetClassMember, GetClassInfo, GetAvailableTeacherToAssign, GetUnassignedStudent
         }
-        private Department _dept;
-
-        public enum Entities
-        {
-            Employee, Department, Document, User
-        }
-        private static Entities _entities;
-        public enum Operation
-        {
-            Login, Insert, Update, Delete, Load
-        }
-        private static Operation _operation;
         #endregion
-        public Query()
-        {
-            
-        }
 
         #region Properties
+        private static BackgroundWorker worker;
 
+        private static void initWorker()
+        {
+            worker = new BackgroundWorker();
+            worker.ProgressChanged += Worker_ProgressChanged;
+            worker.DoWork += Worker_DoWork;
+            worker.WorkerReportsProgress = true;
+            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+        }
+
+        public enum Do
+        {
+            GetDataTable, GetList, Delete, Insert
+        }
+
+        private static Do @do;
+
+        private static void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private static void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private static void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            switch (@do)
+            {
+                case Do.GetDataTable:
+                    break;
+                case Do.GetList:
+
+                    break;
+                case Do.Delete:
+                    break;
+                case Do.Insert:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public Query()
+        {
+
+        }
+        #endregion
+
+        #region Variable
+        private static MySqlCommand cmd;
+        private static MySqlDataAdapter da;
+        Process _process;
         #endregion
 
         #region Function
-        public static void Auth(string username, string password)
+
+        public static List<string> GetList(string query)
         {
-            _authorized = DoLogin(username, password);
-            if(_authorized)
-            {
-                usr = new User();
-                Notification.Alert($"You're logged in! {usr.FullName}", Interface.PopNotification.AlertType.Success); 
-                UIController.Navigate(UIController.Controls.LeftPanel);
-                UIController.Navigate(UIController.Controls.Dashboard);
-            }
-            else
-            {
-                Notification.Alert("We couldn't recognize you", Interface.PopNotification.AlertType.Error);
-            }
-        }
-
-        public static void Update(Entities entities, string[] str)
-        {
-            switch (entities)
-            {
-                case Entities.Employee:
-
-                    break;
-                case Entities.Department:
-
-                    break;
-                case Entities.Document:
-
-                    break;
-                case Entities.User:
-
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        public static void Insert(Entities entities, string[] str)
-        {
-            switch (entities)
-            {
-                case Entities.Employee:
-                    cmd = new MySqlCommand("InsertEmployee", Connection.GetConnection());
-                    cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Data.GetNewEmployeeId();
-                    cmd.Parameters.Add("@fname", MySqlDbType.VarChar).Value = str[0];
-                    cmd.Parameters.Add("@lname", MySqlDbType.VarChar).Value = str[1];
-                    cmd.Parameters.Add("@addr", MySqlDbType.Text).Value = str[2];
-                    cmd.Parameters.Add("@pos", MySqlDbType.VarChar).Value = str[3];
-                    cmd.Parameters.Add("@mobile", MySqlDbType.VarChar).Value = str[4];
-                    cmd.Parameters.Add("@homephone", MySqlDbType.VarChar).Value = str[5];
-                    cmd.Parameters.Add("@nikv", MySqlDbType.VarChar).Value = str[6];
-                    cmd.Parameters.Add("@dept", MySqlDbType.Int32).Value = str[7];
-                    cmd.Parameters.Add("@jobtitle", MySqlDbType.VarChar).Value = str[8];
-                    cmd.Parameters.Add("@jobdesc", MySqlDbType.VarChar).Value = str[9];
-                    cmd.Parameters.Add("@pic", MySqlDbType.Text).Value = str[10];
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    if(cmd.ExecuteNonQuery() == 1)
-                    {
-                        Notification.Alert("Employee Data Recorded Succesfully!", Interface.PopNotification.AlertType.Success);
-                    }
-                    else
-                    {
-                        Notification.Alert("Error Occured", Interface.PopNotification.AlertType.Error);
-                    }
-                    break;
-                case Entities.Department:
-                    cmd = new MySqlCommand("InsertDepartment", Connection.GetConnection());
-                    cmd.Parameters.Add("@", MySqlDbType.VarChar).Value = str[0];
-                    cmd.Parameters.Add("@", MySqlDbType.Text).Value = str[1];
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    if(cmd.ExecuteNonQuery() == 1)
-                    {
-                        Notification.Alert("Department Inserted succesfully!", Interface.PopNotification.AlertType.Success);
-                    }
-                    else
-                    {
-                        Notification.Alert("Unknown Error", Interface.PopNotification.AlertType.Error);
-                    }
-                    break;
-                case Entities.Document:
-                    break;
-                case Entities.User:
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        public static DataTable Load(Entities entities, string [] str)
-        {
+            List<string> l = new List<string>();
             DataTable dt = new DataTable();
-            switch (entities)
+            MySqlCommand cmd = Command(query);
+            Db.DataAdapter(cmd, dt);
+            foreach (string item in dt.Rows)
             {
-                case Entities.Employee:
-                    //retrieve all employee, put 0 will parse all result
-                    if(str[0] == "0")
+                l.Add(item);
+            }   
+            return l;
+        }
+
+        public static AutoCompleteStringCollection GetAutoCompleteCollection(string query)
+        {
+            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
+            DataTable dt = new DataTable();
+            MySqlCommand cmd = Command(query);
+            Db.DataAdapter(cmd, dt);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string str = dt.Rows[i][0].ToString();
+                ac.Add(str);
+            }
+            return ac;
+        }
+
+        public static bool Delete(string Query, string[] param, MySqlDbType[] type, string[] value)
+        {
+            MySqlCommand cmd = Command(Query);
+            if (param[0] != "@noparam")
+            {
+                for (int i = 0; i < param.Length; i++)
+                {
+                    cmd.Parameters.Add(param[i], type[i]).Value = value[i];
+                }
+                try
+                {
+                    if (cmd.ExecuteNonQuery() == 1)
                     {
-                        cmd = new MySqlCommand("GetAllEmployee", Connection.GetConnection());
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        dataAdapter = new MySqlDataAdapter(cmd);
-                        dataAdapter.Fill(dt);
-                        return dt;
-                    }
-                    else//retrieve selected employee, put employeeid
-                    {
-                        cmd = new MySqlCommand("GetEmployee", Connection.GetConnection());
-                        cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = str[0];
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        dataAdapter = new MySqlDataAdapter(cmd);
-                        dataAdapter.Fill(dt);
-                        return dt;
-                    }
-                    break;
-                case Entities.Department:
-                    if (str[0] == "0")
-                    {
-                        cmd = new MySqlCommand("GetAllDepartment", Connection.GetConnection());
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        dataAdapter = new MySqlDataAdapter(cmd);
-                        dataAdapter.Fill(dt);
-                        return dt;
+                        return true;
                     }
                     else
                     {
-                        cmd = new MySqlCommand("GetSpecificDepartment", Connection.GetConnection());
-                        cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = str[0];
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        dataAdapter = new MySqlDataAdapter(cmd);
-                        dataAdapter.Fill(dt);
-                        return dt;
+                        return false;
                     }
-                    break;
-                case Entities.Document:
-                    return dt;
-                    break;
-                case Entities.User:
-                    cmd = new MySqlCommand("GetUserData", Connection.GetConnection());
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@ownerid", MySqlDbType.Int32).Value = str[0];
-                    dataAdapter = new MySqlDataAdapter(cmd);
-                    dataAdapter.Fill(dt);
-                    return dt;
-                    break;
-                default:
-                    return dt;
-                    break;
-            }
-        }
-
-        private static bool DoLogin(string username, string password)
-        {
-            try
-            {
-                cmd = new MySqlCommand("Login", Connection.GetConnection());
-                cmd.Parameters.Add("@usr", MySqlDbType.VarChar).Value = username;
-                cmd.Parameters.Add("@pwd", MySqlDbType.VarChar).Value = password;
-                cmd.CommandType = CommandType.StoredProcedure;
-                dataAdapter = new MySqlDataAdapter(cmd);
-                table = new DataTable();
-                dataAdapter.Fill(table);
-                if(table.Rows.Count > 0)
-                {
-                    SelectedID = Convert.ToInt32(table.Rows[0][0]);
-                    return true;
                 }
-                else
+                catch (Exception)
                 {
                     return false;
                 }
             }
-            catch (MySqlException ex)
+            else
             {
-
                 return false;
             }
         }
+
+        public static DataTable GetDataTable(string Query, string[] param, MySqlDbType[] type, string[] value)
+        {
+            DataTable dt = new DataTable();
+            MySqlCommand cmd;
+            cmd = Command(Query);
+            if (param[0] != "@noparam")
+            {
+                for (int i = 0; i < param.Length; i++)
+                {
+                    cmd.Parameters.Add(param[i], type[i]).Value = value[i];
+                }
+                Db.DataAdapter(cmd, dt);
+            }
+            else
+            {
+                Db.DataAdapter(cmd, dt);
+            }
+            return dt;
+        }
+
+        public static bool Insert(string query, string[] param, MySqlDbType[] type, string[] value)
+        {
+            MySqlCommand cmd = Command(query);
+            if (param[0] != "@noparam")
+            {
+                for (int i = 0; i < param.Length; i++)
+                {
+                    cmd.Parameters.Add(param[i], type[i]).Value = value[i];
+                }
+                try
+                {
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        Notification.Alert("Operation completed succesfully", Interface.PopUp.AlertType.Success);
+                    }
+                    return true;
+                }
+                catch (MySqlException ex)
+                {
+                    Notification.Alert($"Oops something wrong\n({ex.Message})", Interface.PopUp.AlertType.Error);
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        Notification.Alert("Operation completed succesfully", Interface.PopUp.AlertType.Success);
+                    }
+                    return true;
+                }
+                catch (MySqlException ex)
+                {
+                    Notification.Alert($"Something is wrong, possibly duplicate\nTech. Detail({ex.Message})", Interface.PopUp.AlertType.Error);
+                    return false;
+                }
+            }
+        }
+
+        public static MySqlCommand Command(string str)
+        {
+            MySqlCommand cmd = new MySqlCommand(str, Db.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            return cmd;
+        }
+
+        public static int? GetRandomNumber(Process proc)
+        {
+            MySqlCommand cmd;
+            DataTable table = new DataTable();
+            MySqlDataReader reader;
+
+            int? UniqueNumber = null;
+            switch (proc)
+            {
+                case Process.Master:
+                    cmd = new MySqlCommand("GetRandomNumberAY", Db.GetConnection());
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        UniqueNumber = reader.GetInt32("random_num");
+                    }
+                    reader.Close();
+                    return UniqueNumber;
+                default:
+                    return null;
+            }
+        }
         #endregion
+
     }
 }

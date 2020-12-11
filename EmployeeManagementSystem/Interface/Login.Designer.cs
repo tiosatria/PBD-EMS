@@ -56,7 +56,7 @@
             this.txtUsername.ForeColor = System.Drawing.Color.White;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.HoverState.Parent = this.txtUsername;
-            this.txtUsername.Location = new System.Drawing.Point(463, 360);
+            this.txtUsername.Location = new System.Drawing.Point(504, 361);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
@@ -69,7 +69,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::EmployeeManagementSystem.Properties.Resources.icons8_management_200px_2;
-            this.pictureBox1.Location = new System.Drawing.Point(496, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(537, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(228, 197);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,7 +95,7 @@
             this.txtPassword.ForeColor = System.Drawing.Color.White;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.HoverState.Parent = this.txtPassword;
-            this.txtPassword.Location = new System.Drawing.Point(463, 428);
+            this.txtPassword.Location = new System.Drawing.Point(504, 429);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '\0';
@@ -112,7 +112,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(320, 247);
+            this.label1.Location = new System.Drawing.Point(361, 248);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(581, 37);
             this.label1.TabIndex = 4;
@@ -124,7 +124,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(391, 299);
+            this.label2.Location = new System.Drawing.Point(432, 300);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(428, 32);
             this.label2.TabIndex = 5;
@@ -142,7 +142,7 @@
             this.btnContinue.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnContinue.ForeColor = System.Drawing.Color.Black;
             this.btnContinue.HoverState.Parent = this.btnContinue;
-            this.btnContinue.Location = new System.Drawing.Point(521, 503);
+            this.btnContinue.Location = new System.Drawing.Point(572, 505);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.ShadowDecoration.Parent = this.btnContinue;
             this.btnContinue.Size = new System.Drawing.Size(167, 45);
@@ -160,6 +160,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.Name = "Login";
             this.Size = new System.Drawing.Size(1280, 611);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

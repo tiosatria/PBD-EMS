@@ -48,7 +48,7 @@
             this.btnYes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnYes.ForeColor = System.Drawing.Color.Black;
             this.btnYes.HoverState.Parent = this.btnYes;
-            this.btnYes.Location = new System.Drawing.Point(151, 444);
+            this.btnYes.Location = new System.Drawing.Point(211, 458);
             this.btnYes.Name = "btnYes";
             this.btnYes.ShadowDecoration.Parent = this.btnYes;
             this.btnYes.Size = new System.Drawing.Size(286, 58);
@@ -68,7 +68,7 @@
             this.btnNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo.ForeColor = System.Drawing.Color.Black;
             this.btnNo.HoverState.Parent = this.btnNo;
-            this.btnNo.Location = new System.Drawing.Point(633, 444);
+            this.btnNo.Location = new System.Drawing.Point(693, 458);
             this.btnNo.Name = "btnNo";
             this.btnNo.ShadowDecoration.Parent = this.btnNo;
             this.btnNo.Size = new System.Drawing.Size(286, 58);
@@ -101,7 +101,7 @@
             // picDialog
             // 
             this.picDialog.BackColor = System.Drawing.Color.Transparent;
-            this.picDialog.Location = new System.Drawing.Point(404, 138);
+            this.picDialog.Location = new System.Drawing.Point(464, 133);
             this.picDialog.Name = "picDialog";
             this.picDialog.Size = new System.Drawing.Size(263, 250);
             this.picDialog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -119,7 +119,7 @@
             this.Controls.Add(this.btnYes);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "DialogYesNo";
-            this.Size = new System.Drawing.Size(1153, 566);
+            this.Size = new System.Drawing.Size(1280, 611);
             ((System.ComponentModel.ISupportInitialize)(this.picDialog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -121,31 +121,37 @@
   <data name="icons8_checkmark_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8_checkmark_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_Check_Mark_48px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8_Check_Mark_48px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_question_mark_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_question_mark_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_unit_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_unit_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_high_risk_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8_high_risk_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_info_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8_info_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_male_user_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8_male_user_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_management_200px_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8_management_200px_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_question_mark_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8_question_mark_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_question_mark_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8_question_mark_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_Warning_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_Warning_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_shutdown_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8_shutdown_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_Warning_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8_Warning_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_Check_Mark_48px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_Check_Mark_48px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_info_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_info_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_management_200px_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_management_200px_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_male_user_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_male_user_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_question_mark_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_question_mark_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_view_more_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8_view_more_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

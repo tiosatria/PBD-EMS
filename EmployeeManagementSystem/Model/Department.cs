@@ -15,7 +15,25 @@ namespace EmployeeManagementSystem.Model
         public int DeptID { get; set; }
         public string DeptName { get; set; }
         public string DeptDesc { get; set; }
+        public static Department CurrentDepartment = null;
+        #region Function
+        //public static Department GetList()
+        //{
 
+        //}
+        //public static Department Get()
+        //{
+
+        //}
+        //public static bool Insert()
+        //{
+
+        //}
+        //public static bool Delete()
+        //{
+
+        //}
+        #endregion
 
     }
 }

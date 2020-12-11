@@ -31,8 +31,6 @@ namespace EmployeeManagementSystem.Interface
             else
             {
                 InitializeComponent();
-                Data.GetEmployees();
-                InitGrid();
                 InitDropBox();
             }
             isLoad = true;
@@ -41,72 +39,8 @@ namespace EmployeeManagementSystem.Interface
         private void InitDropBox()
         {
 
-            Data.GetDepartmentList();
-            foreach (var item in Data.departmentsList)
-            {
-                eDropDept.Items.Add(item.DeptName);
-            }
-
             
-        }
-
-        private void InitGrid()
-        {
-            Data.employeesList.Sort((x, y) => x.FullName.CompareTo(y.FullName));
-            dgEmployee.DataSource = Data.employeesList;
-            dgEmployee.Columns[0].Visible = true;
-            dgEmployee.Columns[0].HeaderText= "Employee ID";
-            dgEmployee.Columns[1].Visible = false;
-            dgEmployee.Columns[2].Visible = false;
-            dgEmployee.Columns[3].Visible = true;
-            dgEmployee.Columns[3].HeaderText = "Full Name";
-            dgEmployee.Columns[4].Visible = false;
-            dgEmployee.Columns[5].Visible = false;
-            dgEmployee.Columns[6].Visible = false;
-            dgEmployee.Columns[7].Visible = false;
-            dgEmployee.Columns[8].Visible = false;
-            dgEmployee.Columns[9].Visible = false;
-            dgEmployee.Columns[10].Visible = false;
-            dgEmployee.Columns[11].HeaderText = "Job Title";
-            dgEmployee.Columns[11].Visible = true;
-            dgEmployee.Columns[12].Visible = false;
-            dgEmployee.Columns[13].Visible = false;
-        }
-
-        private void CtrlEmployee_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            UIController.Navigate(UIController.Controls.DeleteEmp);
-        }
-
-        private void dgEmployee_SelectionChanged(object sender, EventArgs e)
-        {
-            int i;
-                i = Convert.ToInt32(dgEmployee.CurrentRow.Cells[0].Value);
-                DisplaySelectedEmployee(i);
-        }
-        private void DisplaySelectedEmployee(int i)
-        {
-            int index = Data.employeesList.FindIndex(id => id.idEmployee.ToString().Contains(i.ToString()));
-            Data.employee = Data.employeesList[index];
-            txtFullname.Text = Data.employee.FullName;
-            txtAddress.Text = Data.employee.ResAddress;
-            txtContact.Text = Data.employee.Mobile;
-            txtDept.Text = Data.employee.Department;
-            txtJobTitle.Text = Data.employee.JobTitle;
-            try
-            {
-                picEmp.Image = Image.FromFile(Data.employee.picLocation);
-
-            }
-            catch (Exception)
-            {
-                picEmp.Image = Resources.icons8_male_user_52px;
-            }
+            
         }
 
         public enum state { View, Create, Update}
@@ -114,32 +48,22 @@ namespace EmployeeManagementSystem.Interface
         private stateCreate _stateCreate;
         private state _state;
 
-        private void FocusingButton(Guna2Button button)
-        {
-            btnPersonal.FillColor = Color.White;
-            btnPersonal.ForeColor = Color.Black;
-            btnDocuments.FillColor = Color.White;
-            btnDocuments.ForeColor = Color.Black;
-            button.FillColor = Color.Black;
-            button.ForeColor = Color.White;
-        }
-
         private void NavigateCreate(stateCreate state)
         {
-            _stateCreate = state;
-            switch (state)
-            {
-                case stateCreate.personal:
-                    CtrPersonal.BringToFront();
-                    FocusingButton(btnPersonal);
-                    break;
-                case stateCreate.document:
-                    CtrlDocuments.BringToFront();
-                    FocusingButton(btnDocuments);
-                    break;
-                default:
-                    break;
-            }
+            //_stateCreate = state;
+            //switch (state)
+            //{
+            //    case stateCreate.personal:
+            //        CtrPersonal.BringToFront();
+            //        FocusingButton(btnPersonal);
+            //        break;
+            //    case stateCreate.document:
+            //        CtrlDocuments.BringToFront();
+            //        FocusingButton(btnDocuments);
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
 
@@ -178,13 +102,6 @@ namespace EmployeeManagementSystem.Interface
             Navigate(state.Create);
         }
 
-        private void dgEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i;
-                i = Convert.ToInt32(dgEmployee.CurrentRow.Cells[0].Value);
-                DisplaySelectedEmployee(i);
-        }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Navigate(state.Update);
@@ -193,68 +110,34 @@ namespace EmployeeManagementSystem.Interface
         private void UpdateData()
         {
             string[] str = new string[10];
-            Query.Update(Query.Entities.Employee, str);
         }
 
-        private void ParseData()
-        {
-            Data.employee.FirstName = eTxtFname.Text;
-            Data.employee.LastName = eTxtLname.Text;
-            Data.employee.ResAddress = eAddress.Text;
-            Data.employee.ResPostCode = ePost.Text;
-            Data.employee.Mobile = eMobile.Text;
-            Data.employee.HomePhone = eHomePhone.Text;
-            Data.employee.Nik = eNik.Text;
-            Data.employee.DepartmentId = Data.department.DeptID;
-            Data.employee.Desc = eDesc.Text;
-            Data.employee.JobTitle = eJobTitle.Text;
-            Data.employee.picLocation = Data.GetImagePath();
-        }
+        //private void ParseData()
+        //{
+        //    Data.employee.FirstName = eTxtFname.Text;
+        //    Data.employee.LastName = eTxtLname.Text;
+        //    Data.employee.ResAddress = eAddress.Text;
+        //    Data.employee.ResPostCode = ePost.Text;
+        //    Data.employee.Mobile = eMobile.Text;
+        //    Data.employee.HomePhone = eHomePhone.Text;
+        //    Data.employee.Nik = eNik.Text;
+        //    Data.employee.DepartmentId = Data.department.DeptID;
+        //    Data.employee.Desc = eDesc.Text;
+        //    Data.employee.JobTitle = eJobTitle.Text;
+        //    Data.employee.picLocation = Data.GetImagePath();
+        //}
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
             NavigateCreate(stateCreate.personal);
         }
-
         private void btnDocuments_Click(object sender, EventArgs e)
         {
             NavigateCreate(stateCreate.document);
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Navigate(state.View);
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if(isSaved)
-            {
-                UpdateData();
-            }
-            else
-            {
-                ParseData();
-                Data.employee.SaveEmployeeData();
-            }
-        }
-
-        private void ePic_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void eDropDept_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedDepartment = eDropDept.SelectedItem.ToString();
-            Data.department = Data.departmentsList[Data.departmentsList.FindIndex(o => o.DeptName.Contains(selectedDepartment))];
-        }
-
-        public static void InsertData()
-        {
-            
         }
     }
 }

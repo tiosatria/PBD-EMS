@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagementSystem.Interface
 {
-    partial class PopNotification
+    partial class PopUp
     {
         /// <summary>
         /// Required designer variable.
@@ -45,11 +45,10 @@
             // 
             // lblMsg
             // 
-            this.lblMsg.AutoSize = true;
             this.lblMsg.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.Location = new System.Drawing.Point(60, 19);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(127, 21);
+            this.lblMsg.Size = new System.Drawing.Size(277, 63);
             this.lblMsg.TabIndex = 4;
             this.lblMsg.Text = "This is notification";
             // 
@@ -69,7 +68,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(343, 32);
+            this.btnClose.Location = new System.Drawing.Point(347, 32);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(25, 26);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,7 +85,7 @@
             this.alertPic.TabIndex = 5;
             this.alertPic.TabStop = false;
             // 
-            // PopNotification
+            // PopUp
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(380, 91);
@@ -95,12 +94,12 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.alertPic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PopNotification";
+            this.Name = "PopUp";
             this.Text = "PopNotification";
+            this.Load += new System.EventHandler(this.PopUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alertPic)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

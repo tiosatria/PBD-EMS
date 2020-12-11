@@ -20,13 +20,8 @@ namespace EmployeeManagementSystem.Model
         {
 
         }
-        public Employee(int id)
-        {
-            GetEmployeeData(id);
-        }
-
         #region Properties
-        public int idEmployee
+        public Int64 idEmployee
         {
             get;
             set;
@@ -43,41 +38,53 @@ namespace EmployeeManagementSystem.Model
         public int DepartmentId { get; set; }
         public string JobTitle { get; set; }
         public string Desc { get; set; }
+        public string Role { get; set; }
         public string picLocation { get; set; }
-        
-
+        public Employee CurrentEmployee = null;
         #endregion
 
         #region Function
-        private void GetEmployeeData(int id)
+        public static Employee InitiateEmployee(Int64 id)
         {
-            DataTable dt = new DataTable();
-            dt = Query.Load(Query.Entities.Employee, new string[1] { id.ToString() });
+            Model.Employee e = new Employee();
+            DataTable dt = Query.GetDataTable("GetEmployee", new string[1] { "@_IDEmployee" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int64 }, new string[1] { id.ToString() });
+            DataRowCollection dr = dt.Rows;
+            if (dt.Rows.Count >= 1)
+            {
+                e.idEmployee = id;
+                e.FirstName = dr[0][1].ToString();
+                e.LastName = dr[0][2].ToString();
+                e.FullName = e.FirstName + " " + e.LastName;
+                e.ResAddress = dr[0][3].ToString();
+                e.ResPostCode = dr[0][4].ToString();
+                e.Mobile = dr[0][5].ToString();
+                e.HomePhone = dr[0][6].ToString();
+                e.Nik = dr[0][7].ToString();
+                e.DepartmentId = Convert.ToInt32(dr[0][8].ToString());
+                e.Role = dr[0][9].ToString();
+                e.JobTitle = dr[0][10].ToString();
+                e.Desc = dr[0][11].ToString(); 
+                e.picLocation = dr[0][12].ToString();
+                e.Department = dr[0][14].ToString();
+            }
+            return e;
         }
+        //public static Employee Get()
+        //{
 
-        public void SaveEmployeeData()
-        {
-            string[] str = new string[11];
-            str[0] = FirstName;
-            str[1] = LastName;
-            str[2] = ResAddress;
-            str[3] = ResPostCode;
-            str[4] = Mobile;
-            str[5] = HomePhone;
-            str[6] = Nik;
-            str[7] = DepartmentId.ToString();
-            str[8] = JobTitle;
-            str[9] = Desc;
-            str[10] = picLocation;
-            Query.Insert(Query.Entities.Employee, str);
-        }
+        //}
+        //public static List<Employee> GetEmployees()
+        //{
 
-        public static void UpdateEmployeeData()
-        {
+        //}
+        //public static bool Insert()
+        //{
 
-        }
-        
+        //}
+        //public static bool Delete()
+        //{
 
+        //}
         #endregion
 
     }

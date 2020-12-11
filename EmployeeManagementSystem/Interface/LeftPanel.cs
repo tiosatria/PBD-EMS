@@ -25,7 +25,6 @@ namespace EmployeeManagementSystem.Interface
 
         public void InitializeObject()
         {
-            this.PicUser.Image = Query.usr.UserImg;
             FocusButton(btnHome);
         }
 
