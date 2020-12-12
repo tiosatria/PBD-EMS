@@ -100,19 +100,19 @@ namespace EmployeeManagementSystem.Model
                 return false;
             }
         }
-        //public static bool Insert()
-        //{
+        public static bool Insert()
+        {
 
-        //}
-        //public static bool Get()
-        //{
+        }
+        public static bool Get()
+        {
 
 
-        //}
-        //public static bool GetList()
-        //{
+        }
+        public static bool GetList()
+        {
 
-        //}
+        }
         #endregion
 
 

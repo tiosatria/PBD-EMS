@@ -11,7 +11,8 @@ namespace EmployeeManagementSystem
         //port was 4409, changed to 3306
         //ais connection
         private static BackgroundWorker worker;
-        private static readonly MySqlConnection Connection = new MySqlConnection("Uid=hermes;Pwd=fR9iMEnRxcaHjB;server=192.168.30.100;database=employeemanagementsystem;port=4409;");
+        private static readonly MySqlConnection Connection = new MySqlConnection($"Uid=root;Pwd=B14ngk3r0g523507!!%%;server=localhost;database=employeemanagementsystem;port=3306;");
+        //private static readonly MySqlConnection Connection = new MySqlConnection("Uid=root;Pwd=fR9iMEnRxcaHjB;server=192.168.30.100;database=employeemanagementsystem;port=4409;");
         public static readonly string ServerIPAddress = @"192.168.30.100";
         //home connection
         //static private MySqlConnection Connection = new MySqlConnection("Uid=root;Pwd=B14ngk3r0g523507!!%%;server=localhost;database=aisdb;port=3306;Allow User Variables=True");
