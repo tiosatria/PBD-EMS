@@ -43,6 +43,21 @@ namespace EmployeeManagementSystem.Model
         #endregion
 
         #region Function
+        public static int TotalEmployeeRecorded()
+        {
+            int i = 0;
+            DataTable dt = Query.GetDataTable("GetStatEmployee", new string[1] { "noparam" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[1] { "" });
+            if (dt.Rows.Count>=1)
+            {
+                i = Convert.ToInt32(dt.Rows[0][0].ToString());
+                return i;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public static Employee Get(Int64 id)
         {
             DataTable dt =  Query.GetDataTable("GetEmployee", new string[1] { "@_IDEmployee" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int64 }, new string[1] { id.ToString() });
@@ -51,7 +66,8 @@ namespace EmployeeManagementSystem.Model
                 Employee e = new Employee();
                 e.idEmployee = id;
                 e.FirstName = dt.Rows[0][1].ToString();
-                e.LastName = dt.Rows[0][2].ToString(); 
+                e.LastName = dt.Rows[0][2].ToString();
+                e.FullName = e.FirstName + " " + e.LastName;
                 e.ResAddress = dt.Rows[0][3].ToString(); 
                 e.ResPostCode = dt.Rows[0][4].ToString(); 
                 e.Mobile = dt.Rows[0][5].ToString();

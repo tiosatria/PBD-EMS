@@ -22,9 +22,10 @@ namespace EmployeeManagementSystem.Interface
         private static Dashboard dashboard = new Dashboard();
         private static DialogYesNo dialog = new DialogYesNo();
         private static Employee employee = new Employee();
+        private static DeptUC DepartmentUC = new DeptUC();
         #endregion
 
-        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Employee, Department }
+        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Employee, Department, RegisterNewEmployee,  }
         private static Controls _controls;
         public enum DockType { top, fill, left }
         private static DockType _dock;
@@ -53,11 +54,12 @@ namespace EmployeeManagementSystem.Interface
                 mainform.Controls.Add(control);
                 control.Dock = dock;
                 control.BringToFront();
-                //mainform.Controls[mainform.Controls.IndexOf(control)].Dock = dock;
-                //mainform.Controls[mainform.Controls.IndexOf(control)].BringToFront();
             }
         }
-
+        public static void OverrideUC(Control control)
+        {
+            SetControl(control, DockStyle.Fill);
+        }
         public static void AnimateControl(Control control, Guna.UI2.AnimatorNS.AnimationType animationType)
         {
             control.Hide();
@@ -80,6 +82,7 @@ namespace EmployeeManagementSystem.Interface
 
                     break;
                 case Controls.LeftPanelExpand:
+                    
                     break;
                 case Controls.Login:
                     SetControl(login, DockStyle.Fill);
@@ -95,13 +98,18 @@ namespace EmployeeManagementSystem.Interface
                     AnimateHideControl(login, Guna.UI2.AnimatorNS.AnimationType.Transparent);
                     SetControl(dashboard, DockStyle.Fill);
                     dashboard.InitializeObject();
-                    AnimateControl(dashboard, Guna.UI2.AnimatorNS.AnimationType.Scale);
                     break;
                 case Controls.Employee:
+                    SetControl(employee, DockStyle.Fill);
+                    employee.InitializeObject(Employee.state.View);
+                    AnimateControl(employee, Guna.UI2.AnimatorNS.AnimationType.HorizSlide);
                     break;
                 case Controls.Department:
+                    SetControl(DepartmentUC, DockStyle.Fill);
+                    DepartmentUC.InitObject();
                     break;
-                default:
+                case Controls.RegisterNewEmployee:
+
                     break;
             }
         }

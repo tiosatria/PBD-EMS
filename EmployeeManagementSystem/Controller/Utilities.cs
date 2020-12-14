@@ -79,6 +79,23 @@ namespace EmployeeManagementSystem.Controller
         {
 
         }
+        public static Image GetImage(string loc)
+        {
+            try
+            {
+                using (Image image = Image.FromFile(loc))
+                {
+                    Bitmap bitmap = new Bitmap(image);
+                    image.Dispose();
+                    return bitmap;
+                }
+            }
+            catch (Exception)
+            {
+                Image image = Resources.Anonym;
+                return image;
+            }
+        }
         public enum LocType
         {
             Photo,

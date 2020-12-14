@@ -63,6 +63,46 @@ namespace EmployeeManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap announcethum {
+            get {
+                object obj = ResourceManager.GetObject("announcethum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap announcethum1 {
+            get {
+                object obj = ResourceManager.GetObject("announcethum1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Anonym {
+            get {
+                object obj = ResourceManager.GetObject("Anonym", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EmployeeDirectory {
+            get {
+                object obj = ResourceManager.GetObject("EmployeeDirectory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_Check_Mark_48px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_Check_Mark_48px_1", resourceCulture);
@@ -123,6 +163,46 @@ namespace EmployeeManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_management_200px_21 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_management_200px_21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_megaphone_40px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_megaphone_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_password_400px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_password_400px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Pencil_Drawing_240px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Pencil_Drawing_240px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_question_mark_480px {
             get {
                 object obj = ResourceManager.GetObject("icons8_question_mark_480px", resourceCulture);
@@ -176,6 +256,36 @@ namespace EmployeeManagementSystem.Properties {
         internal static System.Drawing.Bitmap icons8_Warning_48px {
             get {
                 object obj = ResourceManager.GetObject("icons8_Warning_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InsertNewEmployee {
+            get {
+                object obj = ResourceManager.GetObject("InsertNewEmployee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ManageUserAccount {
+            get {
+                object obj = ResourceManager.GetObject("ManageUserAccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReviewData {
+            get {
+                object obj = ResourceManager.GetObject("ReviewData", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

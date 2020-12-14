@@ -18,15 +18,22 @@ namespace EmployeeManagementSystem.Model
         #endregion
 
         #region Properties
+        public enum Roles
+        {
+            HR, Employee
+        }
+
         public int Uid { get; set; }
-        public int OwnerId { get; set; }
+        public string EmpsName { get; set; }
+        public Int64 OwnerId { get; set; }
         public string Username { get; set; }
         private string _password;
         public string SecretQuestion { get; set; }
         public string SecretAnswer { get; set; }
+        public string Role { get; set; }
         public string Password
         {
-            get { return null; }
+            get { return _password; }
             set { _password = value; }
         }
         private string _UserPicLocation;
@@ -34,12 +41,14 @@ namespace EmployeeManagementSystem.Model
         public string UserPicLocation
         {
             get { return _UserPicLocation; }
-            set { _UserPicLocation = value; userPic = GetImage(value); }
+            set { _UserPicLocation = value; }
         }
 
         public Image userPic { get; set; }
+
         public static User CurrentUser = null;
-        public static Employee Employee = null;
+
+        public Employee Employee { get; set; }
 
         #endregion
         public User()
@@ -48,38 +57,58 @@ namespace EmployeeManagementSystem.Model
         }
 
         #region Function
-        private Image GetImage(string loc)
+       
+        
+        private static void FillCurrentUser(DataTable dt)
         {
-            try
+            CurrentUser = new User();
+            CurrentUser.Uid = Convert.ToInt32(dt.Rows[0][0].ToString());
+            CurrentUser.OwnerId = Convert.ToInt64(dt.Rows[0][1].ToString());
+            CurrentUser.Username = dt.Rows[0][2].ToString();
+            CurrentUser.Password = dt.Rows[0][3].ToString();
+            CurrentUser.SecretQuestion = dt.Rows[0][4].ToString();
+            CurrentUser.SecretAnswer = dt.Rows[0][5].ToString();
+            CurrentUser.Role = dt.Rows[0][6].ToString();
+            CurrentUser.Employee = Employee.Get(CurrentUser.OwnerId);
+        }
+
+        public static bool ValidationByUnameAndSecret(string username, string question, string answer)
+        {
+            DataTable dt = Query.GetDataTable("UserResetValidation", new string[3] { "@_username", "@_secretquestion", "@_answer" }, new MySql.Data.MySqlClient.MySqlDbType[3] { MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[3] { username, question, answer });
+            if (dt.Rows.Count>=1)
             {
-                using (Image image = Image.FromFile(loc))
-                {
-                    Bitmap bitmap = new Bitmap(image);
-                    image.Dispose();
-                    return bitmap;
-                }
+                FillCurrentUser(dt);
+                return true;
             }
-            catch (Exception)
+            else
             {
-                Image image = Resources.icons8_male_user_52px;
-                return image;
+                return false;
             }
         }
-        
+
+        public static bool ResetPassword(User user)
+        {
+            if (Query.Insert("UserUpdatePassword", new string[2] { "@_uid", "@_password" }, new MySql.Data.MySqlClient.MySqlDbType[2] { MySql.Data.MySqlClient.MySqlDbType.Int32, MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[2] { user.Uid.ToString(), user.Password }))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static bool Auth(string username, string password)
         {
+            Int64 id;
             try
             {
-                Int64 id;
                 DataTable dt = Query.GetDataTable("Login", new string[2] { "@_usr", "@_pass" }, new MySql.Data.MySqlClient.MySqlDbType[2] { MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[2] { username, password });
                 if (dt.Rows.Count >= 1)
                 {
                     try
                     {
-                        id = Convert.ToInt64(dt.Rows[0][1].ToString());
-                        CurrentUser = new User();
-                        Employee = Employee.InitiateEmployee(id);
-                        CurrentUser.Username = username;
+                        FillCurrentUser(dt);
                         return true;
                     }
                     catch (Exception)
@@ -87,7 +116,6 @@ namespace EmployeeManagementSystem.Model
                         id = 0;
                         return false;
                     }
-
                 }
                 else
                 {
@@ -100,18 +128,57 @@ namespace EmployeeManagementSystem.Model
                 return false;
             }
         }
-        public static bool Insert()
+        public static bool Insert(User e)
         {
-
+            if (Query.Insert("InsertUser", new string[5] { "@_idOwner", "@_username", "@_pass", "@_secretquestion", "@_answer" }, new MySql.Data.MySqlClient.MySqlDbType[5] { MySql.Data.MySqlClient.MySqlDbType.Int32, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[5] { e.OwnerId.ToString(), e.Username, e.Password, e.SecretQuestion, e.SecretAnswer }))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public static bool Get()
+        public static bool Update(User e)
         {
-
-
+            if (Query.Insert("UpdateUser", new string[6] { "@_Uid", "@_idOwner", "@_username", "@_pass", "@_secretquestion", "@_answer" }, new MySql.Data.MySqlClient.MySqlDbType[6] { MySql.Data.MySqlClient.MySqlDbType.Int32, MySql.Data.MySqlClient.MySqlDbType.Int64, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[6] { e.Uid.ToString() ,e.OwnerId.ToString(), e.Username, e.Password, e.SecretQuestion, e.SecretAnswer }))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public static bool GetList()
+        public static User Get(Int64 e)
         {
-
+            DataTable dt = Query.GetDataTable("GetUser", new string[1] { "@_uid" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int32 }, new string[1] { e.ToString() });
+            if (dt.Rows.Count>=1)
+            {
+                User u = new User();
+                u.Uid = Convert.ToInt32(dt.Rows[0][0].ToString());
+                u.OwnerId = Convert.ToInt64(dt.Rows[0][1].ToString());
+                u.Username = dt.Rows[0][2].ToString();
+                u.Password = dt.Rows[0][3].ToString();
+                u.SecretQuestion = dt.Rows[0][4].ToString();
+                u.SecretAnswer = dt.Rows[0][5].ToString();
+                return u;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static bool Delete(User e)
+        {
+            if (Query.Delete("DeleteUser", new string[1] { "@_uid" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int32 }, new string[1] { e.Uid.ToString() }))
+            {
+                return true;
+            }
+            else
+            {
+                return false;   
+            }
         }
         #endregion
 

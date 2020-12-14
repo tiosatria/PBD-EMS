@@ -22,7 +22,7 @@ namespace EmployeeManagementSystem.Interface
         {
 
         }
-        public void InitializeObject()
+        public void InitializeObject(state state)
         {
             if(isLoad)
             {
@@ -33,6 +33,7 @@ namespace EmployeeManagementSystem.Interface
                 InitializeComponent();
                 InitDropBox();
             }
+            Navigate(state);
             isLoad = true;
         }
 
@@ -80,7 +81,7 @@ namespace EmployeeManagementSystem.Interface
             {
                 case state.View:
                     CtrlEmployeeView.BringToFront();
-                    btnNewRecord.FillColor = Color.White;
+                    //btnNewRecord.FillColor = Color.White;
                     break;
                 case state.Create:
                     UIController.ResetControl(CtrPersonal);
@@ -135,6 +136,12 @@ namespace EmployeeManagementSystem.Interface
         {
             NavigateCreate(stateCreate.document);
         }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            this.SendToBack();
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Navigate(state.View);

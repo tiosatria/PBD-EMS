@@ -63,3 +63,8 @@ C:\Users\it\source\repos\PBD Employee\PBD-EMS\EmployeeManagementSystem\obj\Debug
 C:\Users\it\source\repos\PBD Employee\PBD-EMS\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.PopUp.resources
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.PopUp.resources
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.LeftPanelExpand.resources
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.UCMenu.resources
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.AnnouncementUC.resources
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.DeptUC.resources
+C:\Users\tiosa\source\repos\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Interface.UCAnnouncement.resources

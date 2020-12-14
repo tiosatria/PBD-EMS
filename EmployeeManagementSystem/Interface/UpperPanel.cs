@@ -28,7 +28,7 @@ namespace EmployeeManagementSystem.Interface
         }
         private void PicExit_Click(object sender, EventArgs e)
         {
-            UIController.AnimateHideControl(PicExit, Guna.UI2.AnimatorNS.AnimationType.Transparent);
+            Confirmation.Fire(Confirmation.Type.Exit);
         }
 
         private void PicExit_MouseEnter(object sender, EventArgs e)
@@ -41,24 +41,9 @@ namespace EmployeeManagementSystem.Interface
             UIController.ReduceImageSize(PicExit, 3);
         }
 
-        private void label2_MouseEnter(object sender, EventArgs e)
+        private void pictureBox5_Click(object sender, EventArgs e)
         {
-            UIController.EnlargeImage(picMoreMenu, 3);
-
-        }
-
-        private void label2_MouseLeave(object sender, EventArgs e)
-        {
-            UIController.ReduceImageSize(picMoreMenu, 3);
-
-        }
-        private void picMoreMenu_MouseEnter(object sender, EventArgs e)
-        {
-            UIController.EnlargeImage(picMoreMenu, 3);
-        }
-        private void picMoreMenu_MouseLeave(object sender, EventArgs e)
-        {
-            UIController.ReduceImageSize(picMoreMenu, 3);
+            UIController.Navigate(UIController.Controls.Dashboard);
         }
     }
 }

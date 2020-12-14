@@ -39,6 +39,20 @@ namespace EmployeeManagementSystem.Model
                 return null;
             }
         }
+        public static int GetTotalDepartmentCount()
+        {
+            int i = 0;
+            DataTable dt = Controller.Query.GetDataTable("GetStatDepartment", new string[1] { "noparam" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[1] { "" });
+            if (dt.Rows.Count>=1)
+            {
+                i = Convert.ToInt32(dt.Rows[0][0].ToString());
+                return i;
+            }
+            else
+            {
+                return 0;
+            }
+        }
         public static bool Insert(Department d)
         {
             if (Controller.Query.Insert("InsertDepartment", new string[2] { "@_namedept", "@_descdept" }, new MySql.Data.MySqlClient.MySqlDbType[2] { MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.Text }, new string[2] { d.DeptName, d.DeptDesc }))
