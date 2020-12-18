@@ -57,7 +57,17 @@ namespace EmployeeManagementSystem.Model
                 return 0;
             }
         }
-
+        public static bool UpdatePhoto(Employee e)
+        {
+            if (Query.Insert("EmployeePicUpload", new string[2] { "@_idemployee", "@_employeepic" }, new MySql.Data.MySqlClient.MySqlDbType[2] { MySql.Data.MySqlClient.MySqlDbType.Int64, MySql.Data.MySqlClient.MySqlDbType.Text }, new string[2] { e.idEmployee.ToString(), e.picLocation }))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static Employee Get(Int64 id)
         {
             DataTable dt =  Query.GetDataTable("GetEmployee", new string[1] { "@_IDEmployee" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int64 }, new string[1] { id.ToString() });
@@ -73,11 +83,10 @@ namespace EmployeeManagementSystem.Model
                 e.Mobile = dt.Rows[0][5].ToString();
                 e.HomePhone = dt.Rows[0][6].ToString();
                 e.Nik = dt.Rows[0][7].ToString();
-                e.Role = dt.Rows[0][8].ToString();
-                e.JobTitle = dt.Rows[0][9].ToString();
-                e.Desc = dt.Rows[0][10].ToString();
-                e.picLocation = dt.Rows[0][11].ToString(); 
-                e.Department = dt.Rows[0][12].ToString();
+                e.JobTitle = dt.Rows[0][8].ToString();
+                e.Desc = dt.Rows[0][9].ToString();
+                e.picLocation = dt.Rows[0][10].ToString(); 
+                e.Department = dt.Rows[0][11].ToString();
                 return e;
             }
             else
@@ -92,7 +101,7 @@ namespace EmployeeManagementSystem.Model
         }
         public static bool Insert(Employee e)
         {
-            if (Query.Insert("InsertEmployee", new string[12] { "@_FirstNameEmployee",
+            if (Query.Insert("InsertEmployee", new string[11] { "@_FirstNameEmployee",
                                                                 "@_LastNameEmployee",
                                                                 "@_ResidentialAddressEmployee",
                                                                 "@_ResidentialPostCodeEmployee",
@@ -100,16 +109,15 @@ namespace EmployeeManagementSystem.Model
                                                                 "@_HomePhoneEmployee",
                                                                 "@_NIK",
                                                                 "@_EmployeeDepartment",
-                                                                "@_EmpRoles",
                                                                 "@_EmployeeJobTitle",
                                                                 "@_EmployeeDesc",
                                                                 "@_EmployeePic" }, 
-                                                                new MySql.Data.MySqlClient.MySqlDbType[12] { MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
+                                                                new MySql.Data.MySqlClient.MySqlDbType[11] { MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
                                                                 MySql.Data.MySqlClient.MySqlDbType.Text, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
-                                                                 MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
+                                                                 MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
                                                                 MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.Text, MySql.Data.MySqlClient.MySqlDbType.Text}, 
-                                                                new string[12] { e.FirstName, e.LastName, e.ResAddress, e.ResPostCode, e.Mobile, e.HomePhone, e.Nik, e.Department,
-                                                                e.Role, e.JobTitle, e.Desc, e.picLocation}))
+                                                                new string[11] { e.FirstName, e.LastName, e.ResAddress, e.ResPostCode, e.Mobile, e.HomePhone, e.Nik, e.Department,
+                                                                e.JobTitle, e.Desc, e.picLocation}))
             {
                 return true;
             }
@@ -120,7 +128,7 @@ namespace EmployeeManagementSystem.Model
         }
         public static bool Update(Employee e)
         {
-            if (Query.Insert("InsertEmployee", new string[13] { "@_IDEmployee",
+            if (Query.Insert("UpdateEmployee", new string[12] { "@_IDEmployee",
                                                                 "@_FirstNameEmployee",
                                                                 "@_LastNameEmployee",
                                                                 "@_ResidentialAddressEmployee",
@@ -129,16 +137,15 @@ namespace EmployeeManagementSystem.Model
                                                                 "@_HomePhoneEmployee",
                                                                 "@_NIK",
                                                                 "@_EmployeeDepartment",
-                                                                "@_EmpRoles",
                                                                 "@_EmployeeJobTitle",
                                                                 "@_EmployeeDesc",
                                                                 "@_EmployeePic" },
-                                                                new MySql.Data.MySqlClient.MySqlDbType[13] { MySql.Data.MySqlClient.MySqlDbType.Int64 ,MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
-                                                                MySql.Data.MySqlClient.MySqlDbType.Text, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
+                                                                new MySql.Data.MySqlClient.MySqlDbType[12] { MySql.Data.MySqlClient.MySqlDbType.Int64 ,MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
+                                                                MySql.Data.MySqlClient.MySqlDbType.Text, MySql.Data.MySqlClient.MySqlDbType.VarChar,
                                                                  MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar,
                                                                 MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.Text, MySql.Data.MySqlClient.MySqlDbType.Text},
-                                                                new string[13] { e.idEmployee.ToString() ,e.FirstName, e.LastName, e.ResAddress, e.ResPostCode, e.Mobile, e.HomePhone, e.Nik, e.Department,
-                                                                e.Role, e.JobTitle, e.Desc, e.picLocation}))
+                                                                new string[12] { e.idEmployee.ToString(), e.FirstName, e.LastName, e.ResAddress, e.ResPostCode, e.Mobile, e.HomePhone, e.Nik, e.Department,
+                                                                e.JobTitle, e.Desc, e.picLocation}))
             {
                 return true;
             }

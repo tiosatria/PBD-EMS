@@ -61,6 +61,12 @@
     <Compile Include="Controller\Db.cs" />
     <Compile Include="Controller\MenuController.cs" />
     <Compile Include="Controller\PublicProperties.cs" />
+    <Compile Include="Interface\AccountUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Interface\AccountUC.Designer.cs">
+      <DependentUpon>AccountUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\AnnouncementUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="Interface\UCAnnouncement.Designer.cs">
       <DependentUpon>UCAnnouncement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\UCModel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Interface\UCModel.Designer.cs">
+      <DependentUpon>UCModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Notification.cs" />
     <Compile Include="Controller\Query.cs" />
@@ -151,6 +163,9 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interface\AccountUC.resx">
+      <DependentUpon>AccountUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\AnnouncementUC.resx">
       <DependentUpon>AnnouncementUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\UCAnnouncement.resx">
       <DependentUpon>UCAnnouncement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\UCModel.resx">
+      <DependentUpon>UCModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\UpperPanel.resx">
       <DependentUpon>UpperPanel.cs</DependentUpon>
@@ -282,7 +300,9 @@
     <None Include="Properties\icons8_password_400px_1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Department.ico" />
     <Content Include="icons8_user_group.ico" />
+    <None Include="Properties\derpartment.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

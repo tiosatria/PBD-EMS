@@ -59,7 +59,6 @@ namespace EmployeeManagementSystem
         //return connection
         static public MySqlConnection GetConnection()
         {
-
             if (Connection.State == ConnectionState.Closed)
             {
                 OpenConnection();

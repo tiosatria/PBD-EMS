@@ -79,6 +79,9 @@ namespace EmployeeManagementSystem.Controller
         {
 
         }
+
+
+
         public static Image GetImage(string loc)
         {
             try
@@ -101,6 +104,27 @@ namespace EmployeeManagementSystem.Controller
             Photo,
             Document
         }
+        public enum LocationType
+        {
+            SubjectPhoto, StudentDocuments, StudentPhoto, ParentPhoto, InventoryPhoto, EmployeePhoto, EmployeeDocument
+        }
+        public static string GetFileDbLocationString(LocationType type, string name, OpenFileDialog dialog)
+        {
+            string dbstring;
+            string ext = Path.GetExtension(dialog.FileName);
+            switch (type)
+            {
+                case LocationType.EmployeePhoto:
+                    dbstring = $@"\\{Db.ServerIPAddress}\DocumentEmployee\Img\{name}{ext}";
+                    return dbstring;
+                case LocationType.EmployeeDocument:
+                    dbstring = $@"\\{Db.ServerIPAddress}\DocumentEmployee\Docs\{ name}{ ext}";
+                    return dbstring;
+                default:
+                    return null;
+            }
+        }
+
         public static string GetSelectedDatagridValue(Guna2DataGridView datagrid, string targetHeader)
         {
             if (datagrid.SelectedCells.Count > 0)
@@ -122,10 +146,10 @@ namespace EmployeeManagementSystem.Controller
             switch (type)
             {
                 case LocType.Document:
-                    dbstring = $@"\\{Db.ServerIPAddress}\SysInternal\Img\Documents\" + name + ext;
+                    dbstring = $@"\\{Db.ServerIPAddress}\DocumentEmployee\Docs\" + name + ext;
                     return dbstring;
                 case LocType.Photo:
-                    dbstring = $@"\\{Db.ServerIPAddress}\SysInternal\Docs\EmployeePhoto\{ name}{ ext}";
+                    dbstring = $@"\\{Db.ServerIPAddress}\DocumentEmployee\Img\{ name}{ ext}";
                     return dbstring;
                 default:
                     return null;
@@ -181,9 +205,9 @@ namespace EmployeeManagementSystem.Controller
                 fsIn.Close();
                 fsOut.Close();
             }
-            catch (IOException)
+            catch (IOException e)
             {
-                MessageBox.Show("Error, file is being used, please try again!");
+                MessageBox.Show(e.Message);
             }
         }
 

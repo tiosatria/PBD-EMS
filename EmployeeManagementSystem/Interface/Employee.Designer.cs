@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.CtrlEmployeeView = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.txtJobTitle = new Guna.UI2.WinForms.Guna2TextBox();
@@ -49,6 +52,9 @@
             this.btnViewDetailed = new Guna.UI2.WinForms.Guna2Button();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.dgEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.panelnotemployee = new System.Windows.Forms.Panel();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.CtrCreateUpdate = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnDocuments = new Guna.UI2.WinForms.Guna2Button();
             this.btnPersonal = new Guna.UI2.WinForms.Guna2Button();
@@ -68,9 +74,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.eMobile = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ePost = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.eHomePhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.eJobTitle = new Guna.UI2.WinForms.Guna2TextBox();
@@ -83,12 +87,36 @@
             this.eAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.CtrlDocuments = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.PanelUploadDocsUp = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.dropDocsType = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lblstat = new System.Windows.Forms.Label();
+            this.lblpleasewait = new System.Windows.Forms.Label();
+            this.ProgressCopy = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.btnUploadRecord = new Guna.UI2.WinForms.Guna2Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txtDocsPath = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnUpload = new Guna.UI2.WinForms.Guna2Button();
+            this.txtDocsName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.btnconfirm = new Guna.UI2.WinForms.Guna2Button();
+            this.dgDocument = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lblnodocs = new System.Windows.Forms.Label();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.picUploading = new System.Windows.Forms.PictureBox();
             this.CtrlEmployeeView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmployee)).BeginInit();
+            this.panelnotemployee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.CtrCreateUpdate.SuspendLayout();
             this.CtrPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePic)).BeginInit();
+            this.CtrlDocuments.SuspendLayout();
+            this.PanelUploadDocsUp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocument)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUploading)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,6 +151,7 @@
             this.CtrlEmployeeView.Controls.Add(this.btnViewDetailed);
             this.CtrlEmployeeView.Controls.Add(this.guna2VSeparator1);
             this.CtrlEmployeeView.Controls.Add(this.dgEmployee);
+            this.CtrlEmployeeView.Controls.Add(this.panelnotemployee);
             this.CtrlEmployeeView.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
             this.CtrlEmployeeView.Location = new System.Drawing.Point(24, 64);
             this.CtrlEmployeeView.Name = "CtrlEmployeeView";
@@ -358,12 +387,13 @@
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.HoverState.Parent = this.btnDelete;
-            this.btnDelete.Location = new System.Drawing.Point(956, 444);
+            this.btnDelete.Location = new System.Drawing.Point(977, 444);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ShadowDecoration.Parent = this.btnDelete;
             this.btnDelete.Size = new System.Drawing.Size(137, 45);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -377,7 +407,7 @@
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
             this.btnEdit.HoverState.Parent = this.btnEdit;
-            this.btnEdit.Location = new System.Drawing.Point(811, 444);
+            this.btnEdit.Location = new System.Drawing.Point(832, 444);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ShadowDecoration.Parent = this.btnEdit;
             this.btnEdit.Size = new System.Drawing.Size(137, 45);
@@ -397,12 +427,13 @@
             this.btnViewDetailed.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetailed.ForeColor = System.Drawing.Color.Black;
             this.btnViewDetailed.HoverState.Parent = this.btnViewDetailed;
-            this.btnViewDetailed.Location = new System.Drawing.Point(666, 444);
+            this.btnViewDetailed.Location = new System.Drawing.Point(687, 444);
             this.btnViewDetailed.Name = "btnViewDetailed";
             this.btnViewDetailed.ShadowDecoration.Parent = this.btnViewDetailed;
             this.btnViewDetailed.Size = new System.Drawing.Size(137, 45);
             this.btnViewDetailed.TabIndex = 7;
             this.btnViewDetailed.Text = "View Detailed";
+            this.btnViewDetailed.Click += new System.EventHandler(this.btnViewDetailed_Click);
             // 
             // guna2VSeparator1
             // 
@@ -413,42 +444,45 @@
             // 
             // dgEmployee
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.dgEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dgEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
             this.dgEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgEmployee.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgEmployee.ColumnHeadersHeight = 20;
             this.dgEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgEmployee.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgEmployee.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgEmployee.EnableHeadersVisualStyles = false;
             this.dgEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgEmployee.Location = new System.Drawing.Point(19, 23);
+            this.dgEmployee.Location = new System.Drawing.Point(19, 28);
+            this.dgEmployee.MinimumSize = new System.Drawing.Size(583, 512);
             this.dgEmployee.MultiSelect = false;
             this.dgEmployee.Name = "dgEmployee";
             this.dgEmployee.ReadOnly = true;
             this.dgEmployee.RowHeadersVisible = false;
             this.dgEmployee.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgEmployee.RowTemplate.Height = 30;
+            this.dgEmployee.RowTemplate.ReadOnly = true;
             this.dgEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgEmployee.Size = new System.Drawing.Size(582, 518);
+            this.dgEmployee.Size = new System.Drawing.Size(583, 513);
             this.dgEmployee.TabIndex = 0;
             this.dgEmployee.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgEmployee.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -469,9 +503,43 @@
             this.dgEmployee.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgEmployee.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgEmployee.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgEmployee.ThemeStyle.RowsStyle.Height = 22;
+            this.dgEmployee.ThemeStyle.RowsStyle.Height = 30;
             this.dgEmployee.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgEmployee.SelectionChanged += new System.EventHandler(this.dgEmployee_SelectionChanged);
+            // 
+            // panelnotemployee
+            // 
+            this.panelnotemployee.Controls.Add(this.guna2CirclePictureBox1);
+            this.panelnotemployee.Controls.Add(this.label19);
+            this.panelnotemployee.Location = new System.Drawing.Point(45, 53);
+            this.panelnotemployee.Name = "panelnotemployee";
+            this.panelnotemployee.Size = new System.Drawing.Size(508, 436);
+            this.panelnotemployee.TabIndex = 21;
+            this.panelnotemployee.Visible = false;
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = global::EmployeeManagementSystem.Properties.Resources.Anonym;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(131, 74);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(220, 204);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 23;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(126, 328);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(225, 25);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "No employee registered";
             // 
             // CtrCreateUpdate
             // 
@@ -488,14 +556,14 @@
             this.CtrCreateUpdate.Location = new System.Drawing.Point(25, 65);
             this.CtrCreateUpdate.Name = "CtrCreateUpdate";
             this.CtrCreateUpdate.ShadowColor = System.Drawing.Color.Black;
-            this.CtrCreateUpdate.Size = new System.Drawing.Size(1228, 448);
+            this.CtrCreateUpdate.Size = new System.Drawing.Size(1228, 566);
             this.CtrCreateUpdate.TabIndex = 22;
+            this.CtrCreateUpdate.Visible = false;
             // 
             // btnDocuments
             // 
             this.btnDocuments.Animated = true;
-            this.btnDocuments.AutoRoundedCorners = true;
-            this.btnDocuments.BorderRadius = 20;
+            this.btnDocuments.BorderRadius = 6;
             this.btnDocuments.CheckedState.Parent = this.btnDocuments;
             this.btnDocuments.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDocuments.CustomImages.Parent = this.btnDocuments;
@@ -514,8 +582,7 @@
             // btnPersonal
             // 
             this.btnPersonal.Animated = true;
-            this.btnPersonal.AutoRoundedCorners = true;
-            this.btnPersonal.BorderRadius = 20;
+            this.btnPersonal.BorderRadius = 6;
             this.btnPersonal.CheckedState.Parent = this.btnPersonal;
             this.btnPersonal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPersonal.CustomImages.Parent = this.btnPersonal;
@@ -534,8 +601,7 @@
             // btnCancel
             // 
             this.btnCancel.Animated = true;
-            this.btnCancel.AutoRoundedCorners = true;
-            this.btnCancel.BorderRadius = 21;
+            this.btnCancel.BorderRadius = 6;
             this.btnCancel.CheckedState.Parent = this.btnCancel;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.CustomImages.Parent = this.btnCancel;
@@ -543,7 +609,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.Location = new System.Drawing.Point(842, 9);
+            this.btnCancel.Location = new System.Drawing.Point(831, 10);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(137, 45);
@@ -554,8 +620,7 @@
             // btnSave
             // 
             this.btnSave.Animated = true;
-            this.btnSave.AutoRoundedCorners = true;
-            this.btnSave.BorderRadius = 21;
+            this.btnSave.BorderRadius = 6;
             this.btnSave.CheckedState.Parent = this.btnSave;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.CustomImages.Parent = this.btnSave;
@@ -563,12 +628,13 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.HoverState.Parent = this.btnSave;
-            this.btnSave.Location = new System.Drawing.Point(693, 10);
+            this.btnSave.Location = new System.Drawing.Point(682, 11);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShadowDecoration.Parent = this.btnSave;
             this.btnSave.Size = new System.Drawing.Size(137, 45);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // CtrPersonal
             // 
@@ -588,9 +654,7 @@
             this.CtrPersonal.Controls.Add(this.label8);
             this.CtrPersonal.Controls.Add(this.label16);
             this.CtrPersonal.Controls.Add(this.eMobile);
-            this.CtrPersonal.Controls.Add(this.ePost);
             this.CtrPersonal.Controls.Add(this.label7);
-            this.CtrPersonal.Controls.Add(this.label14);
             this.CtrPersonal.Controls.Add(this.label6);
             this.CtrPersonal.Controls.Add(this.eHomePhone);
             this.CtrPersonal.Controls.Add(this.eJobTitle);
@@ -605,7 +669,7 @@
             this.CtrPersonal.Location = new System.Drawing.Point(14, 63);
             this.CtrPersonal.Name = "CtrPersonal";
             this.CtrPersonal.ShadowColor = System.Drawing.Color.Black;
-            this.CtrPersonal.Size = new System.Drawing.Size(1194, 374);
+            this.CtrPersonal.Size = new System.Drawing.Size(1194, 425);
             this.CtrPersonal.TabIndex = 41;
             // 
             // label18
@@ -658,6 +722,7 @@
             this.ePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ePic.TabIndex = 10;
             this.ePic.TabStop = false;
+            this.ePic.Click += new System.EventHandler(this.ePic_Click);
             // 
             // guna2VSeparator2
             // 
@@ -696,7 +761,7 @@
             this.eDesc.ForeColor = System.Drawing.Color.White;
             this.eDesc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.eDesc.HoverState.Parent = this.eDesc;
-            this.eDesc.Location = new System.Drawing.Point(636, 239);
+            this.eDesc.Location = new System.Drawing.Point(636, 195);
             this.eDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eDesc.Name = "eDesc";
             this.eDesc.PasswordChar = '\0';
@@ -722,7 +787,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(544, 239);
+            this.label17.Location = new System.Drawing.Point(544, 195);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(93, 21);
             this.label17.TabIndex = 36;
@@ -776,7 +841,7 @@
             this.eNik.ForeColor = System.Drawing.Color.White;
             this.eNik.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.eNik.HoverState.Parent = this.eNik;
-            this.eNik.Location = new System.Drawing.Point(636, 195);
+            this.eNik.Location = new System.Drawing.Point(636, 151);
             this.eNik.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eNik.Name = "eNik";
             this.eNik.PasswordChar = '\0';
@@ -802,7 +867,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(596, 200);
+            this.label16.Location = new System.Drawing.Point(596, 156);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(37, 21);
             this.label16.TabIndex = 34;
@@ -837,35 +902,6 @@
             this.eMobile.Size = new System.Drawing.Size(341, 34);
             this.eMobile.TabIndex = 16;
             // 
-            // ePost
-            // 
-            this.ePost.Animated = true;
-            this.ePost.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(163)))), ((int)(((byte)(101)))));
-            this.ePost.BorderRadius = 5;
-            this.ePost.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ePost.DefaultText = "";
-            this.ePost.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ePost.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ePost.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ePost.DisabledState.Parent = this.ePost;
-            this.ePost.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ePost.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
-            this.ePost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ePost.FocusedState.Parent = this.ePost;
-            this.ePost.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ePost.ForeColor = System.Drawing.Color.White;
-            this.ePost.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ePost.HoverState.Parent = this.ePost;
-            this.ePost.Location = new System.Drawing.Point(636, 151);
-            this.ePost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ePost.Name = "ePost";
-            this.ePost.PasswordChar = '\0';
-            this.ePost.PlaceholderText = "";
-            this.ePost.SelectedText = "";
-            this.ePost.ShadowDecoration.Parent = this.ePost;
-            this.ePost.Size = new System.Drawing.Size(341, 34);
-            this.ePost.TabIndex = 33;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -876,17 +912,6 @@
             this.label7.Size = new System.Drawing.Size(96, 21);
             this.label7.TabIndex = 17;
             this.label7.Text = "Department:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(552, 156);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 21);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Post Code:";
             // 
             // label6
             // 
@@ -1087,11 +1112,16 @@
             this.CtrlDocuments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CtrlDocuments.BackColor = System.Drawing.Color.Transparent;
+            this.CtrlDocuments.Controls.Add(this.lblnodocs);
+            this.CtrlDocuments.Controls.Add(this.guna2Button2);
+            this.CtrlDocuments.Controls.Add(this.dgDocument);
+            this.CtrlDocuments.Controls.Add(this.btnconfirm);
+            this.CtrlDocuments.Controls.Add(this.PanelUploadDocsUp);
             this.CtrlDocuments.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
             this.CtrlDocuments.Location = new System.Drawing.Point(15, 61);
             this.CtrlDocuments.Name = "CtrlDocuments";
             this.CtrlDocuments.ShadowColor = System.Drawing.Color.Black;
-            this.CtrlDocuments.Size = new System.Drawing.Size(1194, 374);
+            this.CtrlDocuments.Size = new System.Drawing.Size(1194, 424);
             this.CtrlDocuments.TabIndex = 42;
             // 
             // guna2Button1
@@ -1114,6 +1144,362 @@
             this.guna2Button1.Text = "Back";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
+            // PanelUploadDocsUp
+            // 
+            this.PanelUploadDocsUp.BackColor = System.Drawing.Color.Transparent;
+            this.PanelUploadDocsUp.Controls.Add(this.picUploading);
+            this.PanelUploadDocsUp.Controls.Add(this.dropDocsType);
+            this.PanelUploadDocsUp.Controls.Add(this.lblstat);
+            this.PanelUploadDocsUp.Controls.Add(this.lblpleasewait);
+            this.PanelUploadDocsUp.Controls.Add(this.ProgressCopy);
+            this.PanelUploadDocsUp.Controls.Add(this.btnUploadRecord);
+            this.PanelUploadDocsUp.Controls.Add(this.label31);
+            this.PanelUploadDocsUp.Controls.Add(this.txtDocsPath);
+            this.PanelUploadDocsUp.Controls.Add(this.btnUpload);
+            this.PanelUploadDocsUp.Controls.Add(this.txtDocsName);
+            this.PanelUploadDocsUp.Controls.Add(this.label30);
+            this.PanelUploadDocsUp.Controls.Add(this.label29);
+            this.PanelUploadDocsUp.Controls.Add(this.label28);
+            this.PanelUploadDocsUp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            this.PanelUploadDocsUp.Location = new System.Drawing.Point(3, 5);
+            this.PanelUploadDocsUp.Name = "PanelUploadDocsUp";
+            this.PanelUploadDocsUp.Radius = 6;
+            this.PanelUploadDocsUp.ShadowColor = System.Drawing.Color.Black;
+            this.PanelUploadDocsUp.Size = new System.Drawing.Size(531, 416);
+            this.PanelUploadDocsUp.TabIndex = 61;
+            // 
+            // dropDocsType
+            // 
+            this.dropDocsType.Animated = true;
+            this.dropDocsType.BackColor = System.Drawing.Color.Transparent;
+            this.dropDocsType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dropDocsType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.dropDocsType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dropDocsType.FocusedColor = System.Drawing.Color.Empty;
+            this.dropDocsType.FocusedState.Parent = this.dropDocsType;
+            this.dropDocsType.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dropDocsType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.dropDocsType.FormattingEnabled = true;
+            this.dropDocsType.HoverState.Parent = this.dropDocsType;
+            this.dropDocsType.ItemHeight = 30;
+            this.dropDocsType.Items.AddRange(new object[] {
+            "CV",
+            "Certificate",
+            "ID Card",
+            "Reference Letter"});
+            this.dropDocsType.ItemsAppearance.Parent = this.dropDocsType;
+            this.dropDocsType.Location = new System.Drawing.Point(271, 181);
+            this.dropDocsType.Name = "dropDocsType";
+            this.dropDocsType.ShadowDecoration.Parent = this.dropDocsType;
+            this.dropDocsType.Size = new System.Drawing.Size(203, 36);
+            this.dropDocsType.StartIndex = 0;
+            this.dropDocsType.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.dropDocsType.TabIndex = 101;
+            // 
+            // lblstat
+            // 
+            this.lblstat.AutoSize = true;
+            this.lblstat.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstat.Location = new System.Drawing.Point(231, 292);
+            this.lblstat.Name = "lblstat";
+            this.lblstat.Size = new System.Drawing.Size(39, 21);
+            this.lblstat.TabIndex = 68;
+            this.lblstat.Text = "50%";
+            this.lblstat.Visible = false;
+            // 
+            // lblpleasewait
+            // 
+            this.lblpleasewait.AutoSize = true;
+            this.lblpleasewait.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpleasewait.Location = new System.Drawing.Point(207, 236);
+            this.lblpleasewait.Name = "lblpleasewait";
+            this.lblpleasewait.Size = new System.Drawing.Size(97, 21);
+            this.lblpleasewait.TabIndex = 67;
+            this.lblpleasewait.Text = "Please Wait...";
+            this.lblpleasewait.Visible = false;
+            // 
+            // ProgressCopy
+            // 
+            this.ProgressCopy.AutoRoundedCorners = true;
+            this.ProgressCopy.BorderRadius = 14;
+            this.ProgressCopy.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.ProgressCopy.Location = new System.Drawing.Point(152, 259);
+            this.ProgressCopy.Name = "ProgressCopy";
+            this.ProgressCopy.ProgressColor = System.Drawing.Color.Coral;
+            this.ProgressCopy.ShadowDecoration.Parent = this.ProgressCopy;
+            this.ProgressCopy.Size = new System.Drawing.Size(213, 30);
+            this.ProgressCopy.TabIndex = 66;
+            this.ProgressCopy.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.ProgressCopy.Value = 50;
+            this.ProgressCopy.Visible = false;
+            // 
+            // btnUploadRecord
+            // 
+            this.btnUploadRecord.Animated = true;
+            this.btnUploadRecord.AutoRoundedCorners = true;
+            this.btnUploadRecord.BorderRadius = 29;
+            this.btnUploadRecord.CheckedState.Parent = this.btnUploadRecord;
+            this.btnUploadRecord.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUploadRecord.CustomImages.Parent = this.btnUploadRecord;
+            this.btnUploadRecord.FillColor = System.Drawing.Color.Silver;
+            this.btnUploadRecord.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadRecord.ForeColor = System.Drawing.Color.Black;
+            this.btnUploadRecord.HoverState.FillColor = System.Drawing.Color.LightCoral;
+            this.btnUploadRecord.HoverState.Parent = this.btnUploadRecord;
+            this.btnUploadRecord.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnUploadRecord.Location = new System.Drawing.Point(152, 329);
+            this.btnUploadRecord.Name = "btnUploadRecord";
+            this.btnUploadRecord.ShadowDecoration.Parent = this.btnUploadRecord;
+            this.btnUploadRecord.Size = new System.Drawing.Size(190, 60);
+            this.btnUploadRecord.TabIndex = 65;
+            this.btnUploadRecord.Text = "Upload & Finalize";
+            this.btnUploadRecord.Click += new System.EventHandler(this.btnUploadRecord_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(225, 56);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(142, 21);
+            this.label31.TabIndex = 64;
+            this.label31.Text = "Document Location";
+            // 
+            // txtDocsPath
+            // 
+            this.txtDocsPath.Animated = true;
+            this.txtDocsPath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDocsPath.DefaultText = "";
+            this.txtDocsPath.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDocsPath.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDocsPath.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDocsPath.DisabledState.Parent = this.txtDocsPath;
+            this.txtDocsPath.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDocsPath.Enabled = false;
+            this.txtDocsPath.FocusedState.BorderColor = System.Drawing.Color.LightCoral;
+            this.txtDocsPath.FocusedState.Parent = this.txtDocsPath;
+            this.txtDocsPath.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocsPath.HoverState.BorderColor = System.Drawing.Color.LightCoral;
+            this.txtDocsPath.HoverState.Parent = this.txtDocsPath;
+            this.txtDocsPath.Location = new System.Drawing.Point(229, 78);
+            this.txtDocsPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDocsPath.Name = "txtDocsPath";
+            this.txtDocsPath.PasswordChar = '\0';
+            this.txtDocsPath.PlaceholderText = "Nothing here";
+            this.txtDocsPath.ReadOnly = true;
+            this.txtDocsPath.SelectedText = "";
+            this.txtDocsPath.ShadowDecoration.Parent = this.txtDocsPath;
+            this.txtDocsPath.Size = new System.Drawing.Size(245, 43);
+            this.txtDocsPath.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtDocsPath.TabIndex = 63;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Animated = true;
+            this.btnUpload.AutoRoundedCorners = true;
+            this.btnUpload.BorderRadius = 29;
+            this.btnUpload.CheckedState.Parent = this.btnUpload;
+            this.btnUpload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpload.CustomImages.Parent = this.btnUpload;
+            this.btnUpload.FillColor = System.Drawing.Color.Silver;
+            this.btnUpload.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpload.ForeColor = System.Drawing.Color.Black;
+            this.btnUpload.HoverState.FillColor = System.Drawing.Color.LightCoral;
+            this.btnUpload.HoverState.Parent = this.btnUpload;
+            this.btnUpload.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnUpload.Location = new System.Drawing.Point(23, 61);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.ShadowDecoration.Parent = this.btnUpload;
+            this.btnUpload.Size = new System.Drawing.Size(190, 60);
+            this.btnUpload.TabIndex = 62;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // txtDocsName
+            // 
+            this.txtDocsName.Animated = true;
+            this.txtDocsName.AutoRoundedCorners = true;
+            this.txtDocsName.BackColor = System.Drawing.Color.Transparent;
+            this.txtDocsName.BorderRadius = 20;
+            this.txtDocsName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDocsName.DefaultText = "";
+            this.txtDocsName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDocsName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDocsName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDocsName.DisabledState.Parent = this.txtDocsName;
+            this.txtDocsName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDocsName.FocusedState.BorderColor = System.Drawing.Color.LightCoral;
+            this.txtDocsName.FocusedState.Parent = this.txtDocsName;
+            this.txtDocsName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocsName.HoverState.BorderColor = System.Drawing.Color.LightCoral;
+            this.txtDocsName.HoverState.Parent = this.txtDocsName;
+            this.txtDocsName.Location = new System.Drawing.Point(47, 175);
+            this.txtDocsName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDocsName.Name = "txtDocsName";
+            this.txtDocsName.PasswordChar = '\0';
+            this.txtDocsName.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtDocsName.PlaceholderText = "Name me something";
+            this.txtDocsName.SelectedText = "";
+            this.txtDocsName.ShadowDecoration.Parent = this.txtDocsName;
+            this.txtDocsName.Size = new System.Drawing.Size(203, 43);
+            this.txtDocsName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtDocsName.TabIndex = 56;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.Black;
+            this.label30.Location = new System.Drawing.Point(18, 10);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(223, 28);
+            this.label30.TabIndex = 2;
+            this.label30.Text = "Upload Document";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(267, 148);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(116, 21);
+            this.label29.TabIndex = 59;
+            this.label29.Text = "Document Type";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(43, 148);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(125, 21);
+            this.label28.TabIndex = 57;
+            this.label28.Text = "Document Name";
+            // 
+            // btnconfirm
+            // 
+            this.btnconfirm.Animated = true;
+            this.btnconfirm.AutoRoundedCorners = true;
+            this.btnconfirm.BorderRadius = 21;
+            this.btnconfirm.CheckedState.Parent = this.btnconfirm;
+            this.btnconfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnconfirm.CustomImages.Parent = this.btnconfirm;
+            this.btnconfirm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.btnconfirm.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnconfirm.ForeColor = System.Drawing.Color.Black;
+            this.btnconfirm.HoverState.Parent = this.btnconfirm;
+            this.btnconfirm.Location = new System.Drawing.Point(712, 369);
+            this.btnconfirm.Name = "btnconfirm";
+            this.btnconfirm.ShadowDecoration.Parent = this.btnconfirm;
+            this.btnconfirm.Size = new System.Drawing.Size(137, 45);
+            this.btnconfirm.TabIndex = 62;
+            this.btnconfirm.Text = "Open";
+            this.btnconfirm.Click += new System.EventHandler(this.btnconfirm_Click);
+            // 
+            // dgDocument
+            // 
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.dgDocument.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            this.dgDocument.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgDocument.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgDocument.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            this.dgDocument.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgDocument.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgDocument.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgDocument.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.dgDocument.ColumnHeadersHeight = 20;
+            this.dgDocument.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgDocument.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dgDocument.EnableHeadersVisualStyles = false;
+            this.dgDocument.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgDocument.Location = new System.Drawing.Point(555, 5);
+            this.dgDocument.MultiSelect = false;
+            this.dgDocument.Name = "dgDocument";
+            this.dgDocument.ReadOnly = true;
+            this.dgDocument.RowHeadersVisible = false;
+            this.dgDocument.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgDocument.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgDocument.Size = new System.Drawing.Size(626, 358);
+            this.dgDocument.TabIndex = 63;
+            this.dgDocument.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgDocument.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgDocument.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgDocument.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgDocument.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgDocument.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgDocument.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            this.dgDocument.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgDocument.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgDocument.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgDocument.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgDocument.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgDocument.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgDocument.ThemeStyle.HeaderStyle.Height = 20;
+            this.dgDocument.ThemeStyle.ReadOnly = true;
+            this.dgDocument.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgDocument.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgDocument.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgDocument.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgDocument.ThemeStyle.RowsStyle.Height = 22;
+            this.dgDocument.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgDocument.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgDocument.SelectionChanged += new System.EventHandler(this.dgDocument_SelectionChanged);
+            // 
+            // lblnodocs
+            // 
+            this.lblnodocs.AutoSize = true;
+            this.lblnodocs.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnodocs.ForeColor = System.Drawing.Color.Black;
+            this.lblnodocs.Location = new System.Drawing.Point(717, 180);
+            this.lblnodocs.Name = "lblnodocs";
+            this.lblnodocs.Size = new System.Drawing.Size(294, 28);
+            this.lblnodocs.TabIndex = 102;
+            this.lblnodocs.Text = "No Document Uploaded";
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.Animated = true;
+            this.guna2Button2.AutoRoundedCorners = true;
+            this.guna2Button2.BorderRadius = 21;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.LightCoral;
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Location = new System.Drawing.Point(865, 369);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(137, 45);
+            this.guna2Button2.TabIndex = 103;
+            this.guna2Button2.Text = "Delete";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // picUploading
+            // 
+            this.picUploading.Location = new System.Drawing.Point(434, 12);
+            this.picUploading.Name = "picUploading";
+            this.picUploading.Size = new System.Drawing.Size(71, 74);
+            this.picUploading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUploading.TabIndex = 103;
+            this.picUploading.TabStop = false;
+            this.picUploading.Visible = false;
+            // 
             // Employee
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1129,10 +1515,19 @@
             this.CtrlEmployeeView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmployee)).EndInit();
+            this.panelnotemployee.ResumeLayout(false);
+            this.panelnotemployee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.CtrCreateUpdate.ResumeLayout(false);
             this.CtrPersonal.ResumeLayout(false);
             this.CtrPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ePic)).EndInit();
+            this.CtrlDocuments.ResumeLayout(false);
+            this.CtrlDocuments.PerformLayout();
+            this.PanelUploadDocsUp.ResumeLayout(false);
+            this.PanelUploadDocsUp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocument)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUploading)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1178,8 +1573,6 @@
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2TextBox eNik;
         private System.Windows.Forms.Label label16;
-        private Guna.UI2.WinForms.Guna2TextBox ePost;
-        private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2TextBox eHomePhone;
         private System.Windows.Forms.Label label15;
         private Guna.UI2.WinForms.Guna2TextBox ePostCode;
@@ -1192,5 +1585,26 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel CtrPersonal;
         private Guna.UI2.WinForms.Guna2ShadowPanel CtrlDocuments;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Panel panelnotemployee;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private System.Windows.Forms.Label label19;
+        private Guna.UI2.WinForms.Guna2ShadowPanel PanelUploadDocsUp;
+        private Guna.UI2.WinForms.Guna2ComboBox dropDocsType;
+        private System.Windows.Forms.Label lblstat;
+        private System.Windows.Forms.Label lblpleasewait;
+        private Guna.UI2.WinForms.Guna2ProgressBar ProgressCopy;
+        private Guna.UI2.WinForms.Guna2Button btnUploadRecord;
+        private System.Windows.Forms.Label label31;
+        private Guna.UI2.WinForms.Guna2TextBox txtDocsPath;
+        private Guna.UI2.WinForms.Guna2Button btnUpload;
+        private Guna.UI2.WinForms.Guna2TextBox txtDocsName;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private Guna.UI2.WinForms.Guna2Button btnconfirm;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private System.Windows.Forms.Label lblnodocs;
+        private Guna.UI2.WinForms.Guna2DataGridView dgDocument;
+        private System.Windows.Forms.PictureBox picUploading;
     }
 }

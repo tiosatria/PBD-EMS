@@ -44,35 +44,16 @@ namespace EmployeeManagementSystem.Model
                 return null;
             }
         }
+
+
         public static DataTable GetDataTable(Int64 i)
         {
             DataTable dt = Query.GetDataTable("GetDTDocument", new string[1] { "@_ownerdocs" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int64 }, new string[1] { i.ToString() });
             return dt;
         }
-        public static bool Insert(Documents e)
+        public static bool Insert(string[] val)
         {
-            if (Query.Insert("InsertDocument", 
-                new string[4] 
-                {
-                "@_ownerdocs",
-                "@_docsname",
-                "@_docstype",
-                "@_docslocation"
-                },
-                new MySql.Data.MySqlClient.MySqlDbType[4]
-                {
-                    MySql.Data.MySqlClient.MySqlDbType.Int64,
-                    MySql.Data.MySqlClient.MySqlDbType.VarChar,
-                    MySql.Data.MySqlClient.MySqlDbType.VarChar,
-                    MySql.Data.MySqlClient.MySqlDbType.Text
-                }, 
-                new string[4]
-                {
-                    e.OwnerDocument.ToString(),
-                    e.DocumentName,
-                    e.DocumentType,
-                    e.DocumentLocation
-                }))
+            if (Query.Insert("InsertDocument", new string[4] { "@_docslocation", "@_ownerdocs", "@_docstype", "@_docsname" }, new MySql.Data.MySqlClient.MySqlDbType[4] { MySql.Data.MySqlClient.MySqlDbType.Text, MySql.Data.MySqlClient.MySqlDbType.Int64, MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar }, val))
             {
                 return true;
             }
@@ -116,9 +97,9 @@ namespace EmployeeManagementSystem.Model
                 return false;
             }
         }
-        public static bool Delete(Documents e)
+        public static bool Delete(int e)
         {
-            if (Query.Delete("DeleteDocument", new string[1] { "@_iddocs" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int32 }, new string[1] { e.IDDocument.ToString() }))
+            if (Query.Delete("DeleteDocument", new string[1] { "@_iddocs" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int32 }, new string[1] { e.ToString() }))
             {
                 return true;
             }

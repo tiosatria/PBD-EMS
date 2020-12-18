@@ -23,9 +23,11 @@ namespace EmployeeManagementSystem.Interface
         private static DialogYesNo dialog = new DialogYesNo();
         private static Employee employee = new Employee();
         private static DeptUC DepartmentUC = new DeptUC();
+        private static AccountUC UserAcc = new AccountUC();
+        private static UCAnnouncement AnnouncementUC = new UCAnnouncement();
         #endregion
 
-        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Employee, Department, RegisterNewEmployee,  }
+        public enum Controls { LeftPanel, LeftPanelExpand, Login, UpperPanel, Dashboard, Employee, Department, RegisterNewEmployee, Announcement, UserAccount }
         private static Controls _controls;
         public enum DockType { top, fill, left }
         private static DockType _dock;
@@ -78,6 +80,15 @@ namespace EmployeeManagementSystem.Interface
             _controls = ctr;
             switch (ctr)
             {
+                case Controls.UserAccount:
+                    SetControl(UserAcc, DockStyle.Fill);
+                    UserAcc.InitObject();
+
+                    break;
+                case Controls.Announcement:
+                    SetControl(AnnouncementUC, DockStyle.Fill);
+                    AnnouncementUC.InitObject();
+                    break;
                 case Controls.LeftPanel:
 
                     break;
@@ -106,10 +117,11 @@ namespace EmployeeManagementSystem.Interface
                     break;
                 case Controls.Department:
                     SetControl(DepartmentUC, DockStyle.Fill);
-                    DepartmentUC.InitObject();
+                    DepartmentUC.InitObject(DeptUC.Action.View);
                     break;
                 case Controls.RegisterNewEmployee:
-
+                    SetControl(employee, DockStyle.Fill);
+                    employee.InitializeObject(Employee.state.Create);
                     break;
             }
         }

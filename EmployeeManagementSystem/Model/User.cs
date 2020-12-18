@@ -68,7 +68,6 @@ namespace EmployeeManagementSystem.Model
             CurrentUser.Password = dt.Rows[0][3].ToString();
             CurrentUser.SecretQuestion = dt.Rows[0][4].ToString();
             CurrentUser.SecretAnswer = dt.Rows[0][5].ToString();
-            CurrentUser.Role = dt.Rows[0][6].ToString();
             CurrentUser.Employee = Employee.Get(CurrentUser.OwnerId);
         }
 
@@ -98,6 +97,34 @@ namespace EmployeeManagementSystem.Model
             }
         }
 
+        public static DataTable GetDataSource()
+        {
+            DataTable dt = Query.GetDataTable("GetDTUser", new string[1] { "noparam" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[1] { "" });
+            return dt;
+        }
+
+        public static string GetOwnerNameByID(Int64 i)
+        {
+            string e = "";
+            DataTable dt = Query.GetDataTable("GetUserNamebyID", new string[1] { "@_i" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.Int32 }, new string[1] { i.ToString() });
+            if (dt.Rows.Count >= 1)
+            {
+                e = dt.Rows[0][0].ToString();
+            }
+            return e;
+        }
+
+        public static Int64 GetOwnerIDByName(string e)
+        {
+            Int64 ez = 0;
+            DataTable dt = Query.GetDataTable("GetOwnerIDByName", new string[1] { "@_name" }, new MySql.Data.MySqlClient.MySqlDbType[1] { MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[1] { e });
+            if (dt.Rows.Count>=1)
+            {
+                ez = Convert.ToInt64(dt.Rows[0][0].ToString());
+            }
+            return ez;
+        }
+
         public static bool Auth(string username, string password)
         {
             Int64 id;
@@ -106,16 +133,8 @@ namespace EmployeeManagementSystem.Model
                 DataTable dt = Query.GetDataTable("Login", new string[2] { "@_usr", "@_pass" }, new MySql.Data.MySqlClient.MySqlDbType[2] { MySql.Data.MySqlClient.MySqlDbType.VarChar, MySql.Data.MySqlClient.MySqlDbType.VarChar }, new string[2] { username, password });
                 if (dt.Rows.Count >= 1)
                 {
-                    try
-                    {
-                        FillCurrentUser(dt);
-                        return true;
-                    }
-                    catch (Exception)
-                    {
-                        id = 0;
-                        return false;
-                    }
+                    FillCurrentUser(dt);
+                    return true;
                 }
                 else
                 {
@@ -157,7 +176,15 @@ namespace EmployeeManagementSystem.Model
             {
                 User u = new User();
                 u.Uid = Convert.ToInt32(dt.Rows[0][0].ToString());
-                u.OwnerId = Convert.ToInt64(dt.Rows[0][1].ToString());
+                try
+                {
+                    u.OwnerId = Convert.ToInt64(dt.Rows[0][1].ToString());
+
+                }
+                catch (Exception)
+                {
+                    u.OwnerId = 0;
+                }
                 u.Username = dt.Rows[0][2].ToString();
                 u.Password = dt.Rows[0][3].ToString();
                 u.SecretQuestion = dt.Rows[0][4].ToString();
